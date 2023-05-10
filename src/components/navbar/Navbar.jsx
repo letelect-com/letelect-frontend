@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-[#fbfcfa] px-[5%] w-full flex justify-between items-center py-4">
+    <nav className="fixed top-0 left-0 right-0 bg-[#fbfaf2] px-[5%] w-full flex justify-between items-center py-4">
       <NavLink className="font-volkhov italic font-black text-2xl text-primary">
         letelect.
       </NavLink>
@@ -19,7 +19,7 @@ const Navbar = () => {
           </button>
         </Link>
         <Link>
-          <button className="border border-primary rounded-md px-4 py-1">
+          <button className="border text-primary border-primary rounded-md px-4 py-1">
             Register
           </button>
         </Link>

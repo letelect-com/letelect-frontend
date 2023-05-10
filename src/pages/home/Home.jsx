@@ -1,36 +1,36 @@
 import React from "react";
 import { Navbar } from "../../components";
 import hero from "../../images/hero.jpg";
-import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
-import BusinessCenterIcon from "@mui/icons-material/BusinessCenter";
-import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
-import SettingsIcon from "@mui/icons-material/Settings";
+import security from "../../images/icons8-encryption-68.png";
+import fast from "../../images/icons8-flash-48.png";
+import customize from "../../images/icons8-settings-64.png";
+import manage from "../../images/icons8-manage-48.png";
 
 const Home = () => {
   const features = [
     {
       name: "Easy to manage and maintain",
-      icon: <BusinessCenterIcon />,
+      icon: manage,
       description: `Our user-friendly interface and streamlined processes make it easy
                     for you to manage your elections, even if you have little or no
                     technical experience.`,
     },
     {
       name: "Fast and efficient",
-      icon: <ElectricBoltIcon />,
+      icon: fast,
       description: `Our online voting system is designed to deliver quick and accurate
                     results, saving you time and effort.`,
     },
     {
       name: "Secure and reliable",
-      icon: <EnhancedEncryptionIcon />,
+      icon: security,
       description: `Our online voting system is built with state-of-the-art security
                     features to ensure the integrity and confidentiality of your
                     elections.`,
     },
     {
       name: "Customizable ballot options",
-      icon: <SettingsIcon />,
+      icon: customize,
       description: `You can tailor your ballot options to fit your unique needs and
                     requirements, ensuring a smooth and hassle-free voting experience.`,
     },
@@ -59,7 +59,7 @@ const Home = () => {
         </div>
       </section>
       <section>
-        <h1 className="my-6 font-open font-black text-center lg:text-2xl w-[50%] m-auto">
+        <h1 className="my-16 font-open font-black text-center text-[#1f456e] lg:text-2xl w-[50%] m-auto">
           Take Your Elections to the Next Level with These Game-Changing
           Features
         </h1>
@@ -67,14 +67,28 @@ const Home = () => {
           {features &&
             features.map((feature) => {
               return (
-                <div key={feature.name}>
-                  <div>{feature.icon}</div>
-                  <h3>{feature.name}</h3>
+                <div
+                  key={feature.name}
+                  className="text-center px-2 py-10 rounded-md shadow-xl"
+                >
+                  <div className="flex justify-center items-center py-4">
+                    <img
+                      src={feature.icon}
+                      alt={feature.name}
+                      className="w-10 m-auto"
+                    />
+                  </div>
+                  <h3 className="font-bold py-2">{feature.name}</h3>
                   <p>{feature.description}</p>
                 </div>
               );
             })}
         </div>
+      </section>
+      <section>
+        <h1 className="my-16 font-open font-black text-center text-[#1f456e] lg:text-2xl w-[50%] m-auto">
+          No Hidden Fees, No Surprises: Our Transparent Pricing Model
+        </h1>
       </section>
     </>
   );
