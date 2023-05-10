@@ -7,8 +7,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: "'Poppins', sans-serif",
-        volkhov: "'Volkhov', sans-serif"
+        montserrat: "'Montserrat', sans-serif",
+        volkhov: "'Volkhov', sans-serif",
+
       },
       colors: {
         primary: "#003fac",
