@@ -3,7 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="flex justify-between items-center py-4">
+    <nav className="fixed top-0 left-0 right-0 bg-[#fbfcfa] px-[5%] w-full flex justify-between items-center py-4">
       <NavLink className="font-volkhov italic font-black text-2xl text-primary">
         letelect.
       </NavLink>
