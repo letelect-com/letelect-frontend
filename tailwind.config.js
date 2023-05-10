@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         poppins: "'Poppins', sans-serif",
         volkhov: "'Volkhov', sans-serif",
+        open: "'Open Sans', sans-serif"
 
       },
       colors: {
