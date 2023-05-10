@@ -1,5 +1,5 @@
-import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -11,18 +11,15 @@ const Navbar = () => {
         <NavLink>Home</NavLink>
         <NavLink>Features</NavLink>
         <NavLink>Pricing</NavLink>
+        <NavLink>About</NavLink>
       </div>
       <div className="flex items-center gap-4">
-        <Link>
-          <button className="bg-primary text-white font-bold px-4 py-1 rounded-md">
-            Login
-          </button>
-        </Link>
-        <Link>
-          <button className="border text-primary border-primary rounded-md px-4 py-1">
-            Register
-          </button>
-        </Link>
+        <button className="bg-primary text-white font-bold px-4 py-1 rounded-md">
+          Login
+        </button>
+        <button className="border text-primary border-primary rounded-md px-4 py-1">
+          Register
+        </button>
       </div>
     </nav>
   );
