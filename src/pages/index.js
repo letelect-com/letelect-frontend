@@ -1,4 +1,4 @@
-export { default as Home } from "./Home"
-export { default as Login } from "./Login"
-export { default as Register } from "./Register"
-export { default as Pricing } from "./Pricing"
+export { default as Home } from "./home/Home"
+export { default as Login } from "./login/Login"
+export { default as Register } from "./register/Register"
+export { default as Pricing } from "./pricing/Pricing"

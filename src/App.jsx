@@ -1,7 +1,14 @@
 import { Routes, Route } from "react-router-dom";
+import { Home } from "./pages";
 
 const App = () => {
-  return <div className="App bg-[var(--primary-color)]">Hello</div>;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
+    </>
+  );
 };
 
 export default App;
