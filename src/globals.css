@@ -1,0 +1,29 @@
+/* global variables */
+:root {
+  --primary-color: hsl(220, 98%, 61%);
+  --check-color-one: hsl(192, 100%, 67%);
+  --check-color-two: hsl(280, 87%, 65%);
+  --light-bg: hsl(0, 0%, 98%);
+  --dark-bg: hsl(235, 21%, 11%);
+  --light-text: var(--dark-bg);
+  --dark-text: var(--light-bg);
+  --font-poppins: "Poppins", sans-serif;
+  --font-normal: 400;
+  --font-bold: 700;
+}
+html {
+  font-size: 100%;
+}
+
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-poppins);
+}
