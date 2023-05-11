@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <section
-      className="fixed h-screen w-screen overflow-hidden text-white"
+      className="fixed h-screen w-screen overflow-hidden"
       style={{
         background: `url(${blob})`,
         backgroundPosition: "center",
@@ -14,22 +14,22 @@ const Login = () => {
       }}
     >
       <div className="h-full flex flex-col justify-center w-[30%] m-auto ">
-        <h1 className="font-volkhov font-bold text-2xl text-center my-2">
+        <h1 className="font-script italic font-bold text-5xl text-white text-center my-2">
           Welcome Back!
         </h1>
         <form>
           <div className="flex flex-col w-full ">
-            <label htmlFor="email" className="font-bold">
+            <label htmlFor="email" className="font-bold text-white mb-1">
               Email
             </label>
             <input
-              className="w-full pl-3 py-2 outline-none border border-primaryLight mb-2 rounded-md"
+              className="w-full pl-3 py-2 outline-none border border-primaryLight mb-2 rounded-md "
               type="email"
               name="email"
             />
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="password" className="font-bold">
+            <label htmlFor="password" className="font-bold text-white mb-1">
               Password
             </label>
             <input

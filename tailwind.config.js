@@ -9,7 +9,8 @@ export default {
       fontFamily: {
         poppins: "'Poppins', sans-serif",
         volkhov: "'Volkhov', sans-serif",
-        open: "'Open Sans', sans-serif"
+        open: "'Open Sans', sans-serif",
+        script: "'Dancing Script', sans-serif"
 
       },
       colors: {
