@@ -1,11 +1,13 @@
 import { Routes, Route } from "react-router-dom";
-import { Home } from "./pages";
+import { Home, Login, Register } from "./pages";
 
 const App = () => {
   return (
-    <div className="px-[5%]">
+    <div>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

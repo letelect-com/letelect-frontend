@@ -3,7 +3,7 @@ import { Navbar } from "../../components";
 import hero from "../../images/hero.jpg";
 import security from "../../images/icons8-encryption-68.png";
 import fast from "../../images/icons8-flash-48.png";
-import customize from "../../images/icons8-settings-64.png";
+import customize from "../../images/icons8-settings-192.png";
 import manage from "../../images/icons8-manage-48.png";
 
 const Home = () => {
@@ -72,7 +72,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <section className="lg:grid grid-cols-2 place-items-center gap-10 py-9 mt-6">
+      <section className="px-[5%] lg:grid grid-cols-2 place-items-center gap-10 py-9 mt-6">
         <div className="py-12">
           <h1 className="my-6 font-open font-black lg:text-[3.8rem] leading-tight">
             Explore the power of{" "}
@@ -92,7 +92,7 @@ const Home = () => {
           <img src={hero} alt="hero" className="w-auto rounded-full" />
         </div>
       </section>
-      <section>
+      <section className="px-[5%]">
         <h1 className="my-16 font-open font-black text-center text-[#1f456e] lg:text-2xl w-[50%] m-auto">
           Take Your Elections to the Next Level with These Game-Changing
           Features
@@ -109,7 +109,7 @@ const Home = () => {
                     <img
                       src={feature.icon}
                       alt={feature.name}
-                      className="w-10 m-auto"
+                      className="w-14 m-auto"
                     />
                   </div>
                   <h3 className="font-bold py-2">{feature.name}</h3>
@@ -119,9 +119,9 @@ const Home = () => {
             })}
         </div>
       </section>
-      <section>
+      <section className="px-[5%]">
         <h1 className="my-16 font-open font-black text-center text-[#1f456e] lg:text-2xl w-[50%] m-auto">
-          No Hidden Fees, No Surprises: Our Transparent Pricing Model
+          Pricing that Works for You: Choose the Right Plan
         </h1>
         <div className="grid grid-cols-3 px-[5%]">
           {pricingPlans &&
@@ -132,7 +132,7 @@ const Home = () => {
                   className={
                     pricingPlan.id === 2
                       ? "bg-primary shadow-2xl text-white px-4 py-8"
-                      : "bg-accent shadow-2xl text-dark px-4 py-8"
+                      : "bg-accent shadow-2xl text-dark px-4 py-8 rounded-2xl"
                   }
                 >
                   <h1

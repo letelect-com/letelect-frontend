@@ -14,7 +14,7 @@ export default {
       },
       colors: {
         primary: "#003fac",
-        onPrimary: "#f7f7f7",
+        onPrimary: "#fbfcfa",
         success: "rgb(21, 184, 57)",
         danger: "rgba(216, 31, 31, 0.8)",
         primaryLight: "rgba(32, 60, 100, 0.8)",
