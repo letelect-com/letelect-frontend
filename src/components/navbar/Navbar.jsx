@@ -4,7 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 bg-onPrimary px-[5%] w-full flex justify-between items-center py-4">
-      <NavLink className="font-script italic font-black text-5xl text-primary">
+      <NavLink className="font-script italic font-black text-4xl text-primary">
         letelect.
       </NavLink>
       <div className="flex items-center gap-4">
