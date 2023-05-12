@@ -1,11 +1,61 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap");
 
-@layer base {
-  body {
-    font-family: "Poppins", sans-serif;
-    background-color: #fbfcfa;
-    color: #050100;
-  }
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  --font-dance: "Dancing Script", cursive;
+  --font-poppins: "Poppins", sans-serif;
+  --font-open: "Open Sans", sans-serif;
+  --standard-weight: 500;
+  --medium-weight: 600;
+  --heavy-weight: 700;
+  --sm: 576px;
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+  --bg-white: #fbfcfa;
+  --bg-blue: #003fac;
+  --gray-shade: #787276;
+  --success: rgb(21, 184, 57);
+  --danger: rgba(216, 31, 31, 0.8);
+  --blue-shade: rgba(32, 60, 100, 0.8);
+  --text-black: #050100;
+  --text-white: #fff;
+  --price-bg: #fbfbf9;
+  --inline: 5%;
+}
+
+html {
+  font-size: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-poppins);
+}
+a {
+  text-decoration: none;
+  color: var(--gray-shade);
+  font-weight: var(--standard-weight);
+  background-color: var(--bg-white);
+}
+h1 {
+  font-family: var(--font-open);
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-white);
+  color: var(--text-black);
 }
