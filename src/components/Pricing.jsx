@@ -91,7 +91,7 @@ const PricingItem = styled.div`
   background-color: ${({ isBlue }) =>
     isBlue ? "var(--bg-blue)" : "var(--price-bg)"};
   color: ${({ isBlue }) =>
-    isBlue ? "var(--text-white)" : "var(--blue-shade)"};
+    isBlue ? "var(--text-white)" : "var(--text-black)"};
   padding-inline: 1.5rem;
   padding-block: 1rem;
   border-radius: 0.3rem;
@@ -99,6 +99,8 @@ const PricingItem = styled.div`
   & h3 {
     text-align: center;
     padding-block: 0.5rem;
+    font-family: var(--font-volkhov);
+    font-size: 1.5rem;
   }
   & button {
     width: 100%;
@@ -109,10 +111,14 @@ const PricingItem = styled.div`
     font-weight: bold;
     border: 1px solid var(--bg-blue);
     border-radius: 0.3rem;
+    font-size: 1rem;
   }
 `;
 const Price = styled.p`
   text-align: center;
+  & :nth-child(2) {
+    font-size: 2.5rem;
+  }
 `;
 
 const PriceCheck = styled.div`
@@ -122,7 +128,6 @@ const PriceCheck = styled.div`
   gap: 0.5rem;
   padding-block: 1rem;
   font-weight: 500;
-  font-family: var(--font-open);
   & p {
     display: flex;
     align-items: center;
