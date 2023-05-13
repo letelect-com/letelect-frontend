@@ -45,11 +45,7 @@ const Features = () => {
             return (
               <FeatureItem key={item.name}>
                 <div>
-                  <img
-                    src={item.icon}
-                    alt={item.name}
-                    className="w-14 m-auto"
-                  />
+                  <img src={item.icon} alt={item.name} />
                 </div>
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
@@ -109,8 +105,8 @@ const FeatureItem = styled.div`
   }
 
   & img {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     object-fit: cover;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
