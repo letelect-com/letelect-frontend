@@ -7,11 +7,13 @@ import "./../index.css";
 const Navbar = () => {
   return (
     <Navigation>
-      <h1>Letelect.</h1>
+      <Link>
+        <h1>Letelect.</h1>
+      </Link>
       <div>
-        <NavLink>Features</NavLink>
-        <NavLink>Pricing</NavLink>
-        <NavLink>About</NavLink>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/">Features</NavLink>
+        <NavLink to="/">Pricing</NavLink>
         <NavLink to="/contact">Contact</NavLink>
       </div>
       <div>
