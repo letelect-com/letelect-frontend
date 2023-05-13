@@ -8,6 +8,7 @@ import manage from "./../images/icons8-manage-48.png";
 const Features = () => {
   const features = [
     {
+      id: 1,
       name: "Easy to manage and maintain",
       icon: manage,
       description: `Our user-friendly interface and streamlined processes make it easy
@@ -15,12 +16,14 @@ const Features = () => {
                     technical experience.`,
     },
     {
+      id: 2,
       name: "Fast and efficient",
       icon: fast,
       description: `Our online voting system is designed to deliver quick and accurate
                     results, saving you time and effort.`,
     },
     {
+      id: 3,
       name: "Secure and reliable",
       icon: security,
       description: `Our online voting system is built with state-of-the-art security
@@ -28,6 +31,7 @@ const Features = () => {
                     elections.`,
     },
     {
+      id: 4,
       name: "Customizable ballot options",
       icon: customize,
       description: `You can tailor your ballot options to fit your unique needs and
@@ -43,7 +47,7 @@ const Features = () => {
         {features &&
           features.map((item) => {
             return (
-              <FeatureItem key={item.name}>
+              <FeatureItem key={item.id}>
                 <div>
                   <img src={item.icon} alt={item.name} />
                 </div>

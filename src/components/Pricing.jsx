@@ -9,7 +9,7 @@ import "@splidejs/splide/dist/css/splide.min.css";
 const Pricing = () => {
   const pricingPlans = [
     {
-      id: 0,
+      id: 1,
       plan: "Free",
       price: 500,
       button: <button>Buy Now</button>,
@@ -20,7 +20,7 @@ const Pricing = () => {
       checkFive: "Standard customer support",
     },
     {
-      id: 1,
+      id: 2,
       plan: "Basic",
       price: 500,
       button: <button>Buy Now</button>,
@@ -31,7 +31,7 @@ const Pricing = () => {
       checkFive: "Standard customer support",
     },
     {
-      id: 2,
+      id: 3,
       plan: "Professional",
       price: 1000,
       button: <button>Buy Now</button>,
@@ -42,7 +42,7 @@ const Pricing = () => {
       checkFive: "Priority customer support",
     },
     {
-      id: 3,
+      id: 4,
       plan: "Ultimate",
       price: 1500,
       button: <button>Buy Now</button>,
@@ -74,7 +74,7 @@ const Pricing = () => {
                 <SplideSlide key={index}>
                   <PricingItem
                     key={item.id}
-                    isBlue={item.id === 2 || item.id == 0}
+                    isBlue={item.id === 3 || item.id == 1}
                   >
                     <h3>{item.plan}</h3>
                     <Price>
