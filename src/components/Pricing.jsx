@@ -3,10 +3,22 @@ import { FeatureContainer, PropsSection } from "./Features";
 import styled from "styled-components";
 import "./../index.css";
 import { Link } from "react-router-dom";
-import { Button } from "./Navbar";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import "@splidejs/splide/dist/css/splide.min.css";
 
 const Pricing = () => {
   const pricingPlans = [
+    {
+      id: 0,
+      plan: "Free",
+      price: 500,
+      button: <button>Buy Now</button>,
+      checkOne: "Up to 500 voters per election",
+      checkTwo: "Customizable ballot options and voting rules",
+      checkThree: "Real-time vote counting and results reporting",
+      checkFour: "Automatic voter verification and authentication",
+      checkFive: "Standard customer support",
+    },
     {
       id: 1,
       plan: "Basic",
@@ -45,44 +57,60 @@ const Pricing = () => {
   return (
     <PropsSection>
       <h1>Get More for Your Money: Explore Our Competitive Pricing</h1>
-      <FeatureContainer pricing>
-        {pricingPlans &&
-          pricingPlans.map((item) => {
-            return (
-              <PricingItem key={item.id} isBlue={item.id === 2}>
-                <h3>{item.plan}</h3>
-                <Price>
-                  <span>Ghc </span>
-                  <span>{item.price}</span>
-                  <span> /mo</span>
-                </Price>
-                <PriceCheck>
-                  <p>
-                    <span>👉</span>
-                    <span>{item.checkOne}</span>
-                  </p>
-                  <p>
-                    <span>👉</span>
-                    <span>{item.checkTwo}</span>
-                  </p>
-                  <p>
-                    <span>👉</span>
-                    <span>{item.checkThree}</span>
-                  </p>
-                  <p>
-                    <span>👉</span>
-                    <span>{item.checkFour}</span>
-                  </p>
-                  <p>
-                    <span>👉</span>
-                    <span>{item.checkFive}</span>
-                  </p>
-                </PriceCheck>
-                <Link>{item.button}</Link>
-              </PricingItem>
-            );
-          })}
-      </FeatureContainer>
+      <Control>
+        <Splide
+          options={{
+            perPage: 3,
+            gap: "1rem",
+            pagination: false,
+            arrows: true,
+            drag: "free",
+            paddingInline: "5%",
+          }}
+        >
+          {pricingPlans &&
+            pricingPlans.map((item, index) => {
+              return (
+                <SplideSlide key={index}>
+                  <PricingItem
+                    key={item.id}
+                    isBlue={item.id === 2 || item.id == 0}
+                  >
+                    <h3>{item.plan}</h3>
+                    <Price>
+                      <span>Ghc </span>
+                      <span>{item.price}</span>
+                      <span> /mo</span>
+                    </Price>
+                    <PriceCheck>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkOne}</span>
+                      </p>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkTwo}</span>
+                      </p>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkThree}</span>
+                      </p>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkFour}</span>
+                      </p>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkFive}</span>
+                      </p>
+                    </PriceCheck>
+                    <Link>{item.button}</Link>
+                  </PricingItem>
+                </SplideSlide>
+              );
+            })}
+        </Splide>
+      </Control>
     </PropsSection>
   );
 };
@@ -137,6 +165,10 @@ const PriceCheck = styled.div`
     align-items: center;
     gap: 0.5rem;
   }
+`;
+
+const Control = styled.div`
+  padding-inline: 10%;
 `;
 
 export default Pricing;

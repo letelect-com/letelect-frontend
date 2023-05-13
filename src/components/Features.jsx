@@ -76,8 +76,7 @@ export const FeatureContainer = styled.div`
   ${(props) =>
     props.pricing &&
     css`
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0rem;
+      display: block;
       padding-inline: 10%;
     `}
 `;
