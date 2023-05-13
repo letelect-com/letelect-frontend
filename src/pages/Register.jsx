@@ -17,28 +17,28 @@ const Register = () => {
           <FormData>
             <label htmlFor="email">Email</label>
             <FormRow>
-              <FiMail size={30} color="var(--gray-shade)" />
+              <FiMail size={30} color="var(--text-black)" />
               <input type="email" name="email" />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="fullname">Full Name</label>
             <FormRow>
-              <BiUserCircle size={30} color="var(--gray-shade)" />
+              <BiUserCircle size={30} color="var(--text-black)" />
               <input type="text" name="fullname" />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="password">Password</label>
             <FormRow>
-              <BiLock size={30} color="var(--gray-shade)" />
+              <BiLock size={30} color="var(--text-black)" />
               <input type="password" name="password" />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <FormRow>
-              <BiLock size={30} color="var(--gray-shade)" />
+              <BiLock size={30} color="var(--text-black)" />
               <input type="password" name="confirmPassword" />
             </FormRow>
           </FormData>
