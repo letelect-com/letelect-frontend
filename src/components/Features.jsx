@@ -4,6 +4,9 @@ import security from "./../images/icons8-encryption-68.png";
 import fast from "./../images/icons8-flash-48.png";
 import customize from "./../images/icons8-settings-192.png";
 import manage from "./../images/icons8-manage-48.png";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import { Control } from "./Pricing";
+import "@splidejs/splide/dist/css/splide.min.css";
 
 const Features = () => {
   const features = [
@@ -37,26 +40,53 @@ const Features = () => {
       description: `You can tailor your ballot options to fit your unique needs and
                     requirements, ensuring a smooth and hassle-free voting experience.`,
     },
+    {
+      id: 5,
+      name: "Multiple voting methods",
+      icon: manage,
+      description: `You can offer voters multiple ways to cast their ballots, 
+                    including online, phone, and SMS, making it easy for everyone to participate.`,
+    },
+    {
+      id: 6,
+      name: "Automatic voter verification and authentication",
+      icon: fast,
+      description: `Our system uses advanced technology to verify and authenticate voters, 
+                    ensuring that each vote is legitimate.`,
+    },
   ];
   return (
     <PropsSection>
       <h1>
         Take Your Elections to the Next Level with These Game-Changing Features
       </h1>
-      <FeatureContainer>
-        {features &&
-          features.map((item) => {
-            return (
-              <FeatureItem key={item.id}>
-                <div>
-                  <img src={item.icon} alt={item.name} />
-                </div>
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-              </FeatureItem>
-            );
-          })}
-      </FeatureContainer>
+      <Control features>
+        <Splide
+          options={{
+            perPage: 4,
+            gap: "1rem",
+            pagination: false,
+            arrows: true,
+            drag: "free",
+            perMove: 1,
+          }}
+        >
+          {features &&
+            features.map((item, index) => {
+              return (
+                <SplideSlide key={index}>
+                  <FeatureItem key={item.id}>
+                    <div>
+                      <img src={item.icon} alt={item.name} />
+                    </div>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                  </FeatureItem>
+                </SplideSlide>
+              );
+            })}
+        </Splide>
+      </Control>
     </PropsSection>
   );
 };
@@ -72,18 +102,7 @@ export const PropsSection = styled.div`
     margin-bottom: 2rem;
   }
 `;
-export const FeatureContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  padding-inline: var(--inline);
-  ${(props) =>
-    props.pricing &&
-    css`
-      display: block;
-      padding-inline: 10%;
-    `}
-`;
+
 const FeatureItem = styled.div`
   background: rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -94,17 +113,12 @@ const FeatureItem = styled.div`
   padding-inline: 1rem;
   padding-block: 1.5rem;
   text-align: center;
-  transition: 0.5s ease-in-out;
+  transition: 0.15s ease-in-out;
   margin-block: 1rem;
+  height: 20rem;
 
   &:hover {
-    background-color: var(--bg-blue);
-    color: white;
-
-    & h3 {
-      color: var(--text-white);
-      transition: 0.5s ease-in-out;
-    }
+    transform: translateY(-10px);
   }
 
   & img {

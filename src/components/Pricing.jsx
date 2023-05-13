@@ -1,6 +1,6 @@
 import React from "react";
-import { FeatureContainer, PropsSection } from "./Features";
-import styled from "styled-components";
+import { PropsSection } from "./Features";
+import styled, { css } from "styled-components";
 import "./../index.css";
 import { Link } from "react-router-dom";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
@@ -65,7 +65,6 @@ const Pricing = () => {
             pagination: false,
             arrows: true,
             drag: "free",
-            paddingInline: "5%",
           }}
         >
           {pricingPlans &&
@@ -167,8 +166,13 @@ const PriceCheck = styled.div`
   }
 `;
 
-const Control = styled.div`
+export const Control = styled.div`
   padding-inline: 10%;
+  ${(props) =>
+    props.features &&
+    css`
+      padding-inline: 5%;
+    `}
 `;
 
 export default Pricing;
