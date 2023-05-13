@@ -10,7 +10,7 @@ const Pricing = () => {
     {
       id: 1,
       plan: "Basic",
-      price: 300,
+      price: 500,
       button: <button>Buy Now</button>,
       checkOne: "Up to 500 voters per election",
       checkTwo: "Customizable ballot options and voting rules",
@@ -21,7 +21,7 @@ const Pricing = () => {
     {
       id: 2,
       plan: "Professional",
-      price: 500,
+      price: 1000,
       button: <button>Buy Now</button>,
       checkOne: "Up to 2,500 voters per election",
       checkTwo: "Advanced security features for added protection",
@@ -32,7 +32,7 @@ const Pricing = () => {
     {
       id: 3,
       plan: "Ultimate",
-      price: 700,
+      price: 1500,
       button: <button>Buy Now</button>,
       checkOne: "Up to 10,000+ voters per election",
       checkTwo: "Customizable integrations with your existing systems",

@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
+import { FiMail } from "react-icons/fi";
 import "./../index.css";
 
 const Register = () => {
@@ -16,21 +17,28 @@ const Register = () => {
           <FormData>
             <label htmlFor="email">Email</label>
             <FormRow>
-              <BiUserCircle size={30} />
+              <FiMail size={30} color="var(--gray-shade)" />
               <input type="email" name="email" />
+            </FormRow>
+          </FormData>
+          <FormData>
+            <label htmlFor="fullname">Full Name</label>
+            <FormRow>
+              <BiUserCircle size={30} color="var(--gray-shade)" />
+              <input type="text" name="fullname" />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="password">Password</label>
             <FormRow>
-              <BiLock size={30} />
+              <BiLock size={30} color="var(--gray-shade)" />
               <input type="password" name="password" />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <FormRow>
-              <BiLock size={30} />
+              <BiLock size={30} color="var(--gray-shade)" />
               <input type="password" name="confirmPassword" />
             </FormRow>
           </FormData>
@@ -62,7 +70,7 @@ const Parent = styled.div`
 
 const Container = styled.div`
   /* From https://css.glass */
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
