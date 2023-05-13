@@ -1,18 +1,18 @@
 import React from "react";
 import { styled } from "styled-components";
+import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
 import "./../index.css";
 
 const Login = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  };
   return (
-    <Parent
-    // style={{
-    //   backgroundImage: `url(${blob})`,
-    // }}
-    >
+    <Parent>
       <Container>
         <h1>Welcome Back!</h1>
-        <Form action="">
+        <Form onSubmit={handleSubmit}>
           <FormData>
             <label htmlFor="email">Email</label>
             <FormRow>
@@ -27,8 +27,15 @@ const Login = () => {
               <input type="password" name="password" />
             </FormRow>
             <SubmitRow>
-              <input type="submit" value="Login" />
+              <input type="submit" value="Login" role="button" />
             </SubmitRow>
+            <Reset>Forgot Password?</Reset>
+            <Register>
+              <p>New to Letelect?</p>
+              <Link to="/register">
+                <span>Create new account.</span>
+              </Link>
+            </Register>
           </FormData>
         </Form>
       </Container>
@@ -49,7 +56,7 @@ const Parent = styled.div`
 
 const Container = styled.div`
   /* From https://css.glass */
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.9);
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
@@ -108,6 +115,43 @@ const SubmitRow = styled.div`
     font-family: var(--font-open);
     border-radius: 0.3rem;
     border: none;
+    cursor: pointer;
+  }
+`;
+const Reset = styled.p`
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  color: var(--text-white);
+  &:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+`;
+
+const Register = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-block: 0.5rem;
+  color: var(--text-white);
+
+  & p {
+    font-family: var(--font-open);
+    font-weight: 600;
+  }
+  & a {
+    background: inherit;
+    color: var(--bg-blue);
+    font-weight: 600;
+    &:hover {
+      text-decoration: underline;
+    }
+    & span {
+      font-family: var(--font-poppins);
+      font-weight: 700;
+    }
   }
 `;
 export default Login;
