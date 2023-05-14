@@ -157,10 +157,14 @@ const PriceCheck = styled.div`
   gap: 0.5rem;
   padding-block: 1rem;
   font-weight: 700;
+
   & p {
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    & span {
+      font-family: var(--font-open);
+    }
   }
 `;
 
