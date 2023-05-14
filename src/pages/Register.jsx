@@ -97,7 +97,7 @@ const FormData = styled.div`
   & label {
     color: var(--text-white);
     font-size: 0.9rem;
-    font-family: var(--font-open);
+    font-family: var(--font-poppins);
     font-weight: 600;
   }
 `;
@@ -107,6 +107,7 @@ const FormRow = styled.div`
   align-items: center;
   padding-left: 0.5rem;
   border-radius: 0.3rem;
+  margin-top: 0.25rem;
   & input {
     width: 100%;
     background: #e8f0fe;
@@ -129,7 +130,7 @@ const SubmitRow = styled.div`
     color: var(--text-white);
     background: var(--bg-blue);
     font-weight: 600;
-    font-family: var(--font-open);
+    font-family: var(--font-poppins);
     border-radius: 0.3rem;
     border: none;
     cursor: pointer;
@@ -145,7 +146,7 @@ const RegisterContainer = styled.div`
   color: var(--text-white);
 
   & p {
-    font-family: var(--font-open);
+    font-family: var(--font-poppins);
     font-weight: 600;
   }
   & a {

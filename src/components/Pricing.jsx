@@ -11,7 +11,7 @@ const Pricing = () => {
     {
       id: 1,
       plan: "Free",
-      price: 500,
+      price: 0,
       button: <button>Buy Now</button>,
       checkOne: "Up to 500 voters per election",
       checkTwo: "Customizable ballot options and voting rules",
@@ -122,8 +122,6 @@ const PricingItem = styled.div`
   padding-inline: 1.5rem;
   padding-block: 1rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 0.3rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -158,7 +156,7 @@ const PriceCheck = styled.div`
   justify-content: center;
   gap: 0.5rem;
   padding-block: 1rem;
-  font-weight: 500;
+  font-weight: 700;
   & p {
     display: flex;
     align-items: center;

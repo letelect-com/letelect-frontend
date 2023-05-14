@@ -37,13 +37,13 @@ const HeroContainer = styled.div`
 
 const TextBox = styled.div`
   & h1 {
-    font-size: 3.8rem;
-    font-family: var(--font-open);
+    font-size: 4rem;
+    font-family: var(--font-poppins);
     margin-bottom: 1rem;
   }
   & span {
     color: var(--bg-blue);
-    font-family: var(--font-open);
+    font-family: var(--font-poppins);
   }
   & p {
     margin-bottom: 1rem;
