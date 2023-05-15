@@ -13,18 +13,22 @@ const Pricing = () => {
       plan: "Free",
       price: 0,
       button: <button>Buy Now</button>,
-      checkOne: "Up to 500 voters per election",
+      checkOne: "1 election",
       checkTwo: "Customizable ballot options and voting rules",
       checkThree: "Real-time vote counting and results reporting",
       checkFour: "Automatic voter verification and authentication",
       checkFive: "Standard customer support",
+      checkSix: "5 Positions",
+      checkSeven: "Upto 15 voters",
     },
     {
       id: 2,
       plan: "Basic",
       price: 500,
       button: <button>Buy Now</button>,
-      checkOne: "Up to 500 voters per election",
+      checkOne: "2 elections",
+      checkSix: "Upto 10 Positions",
+      checkSeven: "Upto 200 voters",
       checkTwo: "Customizable ballot options and voting rules",
       checkThree: "Real-time vote counting and results reporting",
       checkFour: "Automatic voter verification and authentication",
@@ -35,7 +39,9 @@ const Pricing = () => {
       plan: "Professional",
       price: 1000,
       button: <button>Buy Now</button>,
-      checkOne: "Up to 2,500 voters per election",
+      checkOne: "Upto 5 elections",
+      checkSix: "Upto 15 Positions",
+      checkSeven: "Upto 500 voters",
       checkTwo: "Advanced security features for added protection",
       checkThree: "Customizable branding options for your organization",
       checkFour: "Dedicated account manager and technical support",
@@ -46,7 +52,9 @@ const Pricing = () => {
       plan: "Ultimate",
       price: 1500,
       button: <button>Buy Now</button>,
-      checkOne: "Up to 10,000+ voters per election",
+      checkOne: "Upto 10 elections",
+      checkSix: "Upto 30 Positions",
+      checkSeven: "Upto 1500 voters",
       checkTwo: "Customizable integrations with your existing systems",
       checkThree: "Advanced analytics and data visualization tools",
       checkFour: "Customizable API options for developers",
@@ -85,6 +93,14 @@ const Pricing = () => {
                       <p>
                         <span>👉</span>
                         <span>{item.checkOne}</span>
+                      </p>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkSix}</span>
+                      </p>
+                      <p>
+                        <span>👉</span>
+                        <span>{item.checkSeven}</span>
                       </p>
                       <p>
                         <span>👉</span>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
@@ -6,8 +6,39 @@ import { FiMail } from "react-icons/fi";
 import "./../index.css";
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [fullname, setFullname] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (password === confirmPassword) {
+      try {
+        const response = await fetch(
+          "http://209.38.243.86/api-v1/signup-client/",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ email, fullname, password }),
+          }
+        );
+        const data = await response.json();
+        const token = data.token;
+        console.log(token);
+        localStorage.setItem("token", token);
+        token && setSuccess(`Authenticated as ${email} !!`);
+        setTimeout(() => {
+          window.location.href = "/welcome";
+        }, 2000);
+      } catch (err) {
+        setError(err.message);
+      }
+    }
   };
   return (
     <Parent>
@@ -18,33 +49,75 @@ const Register = () => {
             <label htmlFor="email">Email</label>
             <FormRow>
               <FiMail size={30} color="var(--text-black)" />
-              <input type="email" name="email" />
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="fullname">Full Name</label>
             <FormRow>
               <BiUserCircle size={30} color="var(--text-black)" />
-              <input type="text" name="fullname" />
+              <input
+                type="text"
+                name="fullname"
+                value={fullname}
+                onChange={(e) => setFullname(e.target.value)}
+              />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="password">Password</label>
             <FormRow>
               <BiLock size={30} color="var(--text-black)" />
-              <input type="password" name="password" />
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="confirmPassword">Confirm Password</label>
             <FormRow>
               <BiLock size={30} color="var(--text-black)" />
-              <input type="password" name="confirmPassword" />
+              <input
+                type="password"
+                name="confirmPassword"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+              />
             </FormRow>
           </FormData>
           <SubmitRow>
             <input type="submit" value="Create new account" role="button" />
           </SubmitRow>
+          {success && (
+            <p
+              style={{
+                color: "green",
+                textAlign: "center",
+                fontWeight: "700",
+              }}
+            >
+              {success}
+            </p>
+          )}
+          {error && (
+            <p
+              style={{
+                color: "red",
+                textAlign: "center",
+                fontWeight: "700",
+              }}
+            >
+              {error}
+            </p>
+          )}
           <RegisterContainer>
             <p>Have an account?</p>
             <Link to="/login">

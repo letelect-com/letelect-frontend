@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
 import "./../index.css";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
+
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
@@ -12,19 +17,29 @@ const Login = () => {
     <Parent>
       <Container>
         <h1>Welcome Back!</h1>
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={() => handleSubmit(e)}>
           <FormData>
             <label htmlFor="email">Email</label>
             <FormRow>
               <BiUserCircle size={30} />
-              <input type="email" name="email" />
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </FormRow>
           </FormData>
           <FormData>
             <label htmlFor="password">Password</label>
             <FormRow>
               <BiLock size={30} />
-              <input type="password" name="password" />
+              <input
+                type="password"
+                name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
             </FormRow>
             <SubmitRow>
               <input type="submit" value="Login" role="button" />
