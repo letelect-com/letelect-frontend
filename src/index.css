@@ -20,7 +20,7 @@
   --md: 768px;
   --lg: 992px;
   --xl: 1200px;
-  --bg-white: #faf5ef;
+  --bg-white: #fbfaf2;
   --bg-blue: #003fac;
   --gray-shade: #787276;
   --success: rgb(21, 184, 57);
@@ -30,6 +30,8 @@
   --text-white: #fff;
   --price-bg: #fbfbf9;
   --inline: 5%;
+  --header-mobile: 1.5rem;
+  --header-tablet: 2rem;
 }
 
 html {

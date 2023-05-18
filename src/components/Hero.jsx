@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "./../images/hero.jpg";
+import hero from "./../images/hero-new.jpg";
 import { styled } from "styled-components";
 import { Button } from "./Navbar";
 import "./../index.css";
@@ -32,12 +32,13 @@ const HeroContainer = styled.div`
   place-items: center;
   padding-inline: var(--inline);
   margin-block: 4rem;
+  padding-top: 2rem;
   gap: 2rem;
 `;
 
 const TextBox = styled.div`
   & h1 {
-    font-size: 4rem;
+    font-size: 4.2rem;
     font-family: var(--font-poppins);
     margin-bottom: 1rem;
   }
@@ -55,7 +56,8 @@ const HeroBox = styled.div`
   width: 100%;
   & img {
     width: 100%;
-    border-radius: 100%;
+    border-radius: 10%;
+    mix-blend-mode: darken;
   }
 `;
 
