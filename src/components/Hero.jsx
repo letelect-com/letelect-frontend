@@ -55,6 +55,11 @@ const HeroContainer = styled.div`
   margin-block: 4rem;
   padding-top: 2rem;
   gap: 2rem;
+
+  @media (max-width: 800px) {
+    display: flex;
+    flex-direction: column-reverse;
+  }
 `;
 
 const TextBox = styled.div`

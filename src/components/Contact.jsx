@@ -1,14 +1,12 @@
 import React from "react";
 import { BiLocationPlus, BiPhoneCall } from "react-icons/bi";
 import { BsEnvelope } from "react-icons/bs";
-import { Footer, Navbar } from "../components";
 import { styled } from "styled-components";
 import contact from "./../images/contact.jpg";
 
 const Contact = () => {
   return (
     <React.Fragment>
-      <Navbar />
       <Header
         style={{
           backgroundImage: `url(https://images.pexels.com/photos/8715128/pexels-photo-8715128.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1)`,
@@ -69,7 +67,6 @@ const Contact = () => {
           <input type="submit" value="Send Message" />
         </SendBox>
       </Parent>
-      <Footer />
     </React.Fragment>
   );
 };
