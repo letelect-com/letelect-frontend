@@ -1,5 +1,5 @@
 import React from "react";
-import hero from "./../images/hero-new.jpg";
+import hero from "./../images/hero-new.webp";
 import { styled } from "styled-components";
 import { Button } from "./Navbar";
 import "./../index.css";
@@ -57,7 +57,6 @@ const HeroBox = styled.div`
   & img {
     width: 100%;
     border-radius: 10%;
-    mix-blend-mode: darken;
   }
 `;
 
