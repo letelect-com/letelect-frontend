@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Volkhov:wght@400;700&display=swap");
@@ -10,7 +10,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   --font-dance: "Dancing Script", cursive;
-  --font-poppins: "Lato", sans-serif;
+  --font-poppins: "Poppins", sans-serif;
   --font-open: "Varela Round", sans-serif;
   --font-volkhov: "Volkhov", sans-serif;
   --standard-weight: 500;
