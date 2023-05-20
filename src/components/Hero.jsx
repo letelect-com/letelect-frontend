@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import hero from "./../images/hero-new.webp";
 import { styled } from "styled-components";
 import { Button } from "./Navbar";
 import "./../index.css";
+import { Blurhash } from "react-blurhash";
 
 const Hero = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
   return (
     <HeroContainer>
       <TextBox>
@@ -20,7 +26,22 @@ const Hero = () => {
         <Button>Get Started</Button>
       </TextBox>
       <HeroBox>
-        <img src={hero} alt="hero" />
+        {!imageLoaded && (
+          <Blurhash
+            hash="LFC%,oK74;}kx{jEcDbw00$$yB9a"
+            width={590}
+            height={400}
+            resolutionX={32}
+            resolutionY={32}
+            punch={1.5}
+          />
+        )}
+        <img
+          src={hero}
+          alt="hero"
+          style={{ display: imageLoaded ? "inline" : "none" }}
+          onLoad={handleImageLoad}
+        />
       </HeroBox>
     </HeroContainer>
   );
