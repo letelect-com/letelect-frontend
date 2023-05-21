@@ -85,7 +85,7 @@ const Header = styled.div`
     margin: auto;
     color: var(--text-white);
     & h1 {
-      font-family: var(--font-volkhov);
+      font-family: var(--font-open);
       font-size: 3rem;
     }
   }

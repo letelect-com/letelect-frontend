@@ -51,7 +51,8 @@ const HeroContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   place-items: center;
-  padding-inline: var(--inline);
+  width: 90%;
+  margin: auto;
   margin-block: 4rem;
   padding-top: 2rem;
   gap: 2rem;
@@ -80,8 +81,12 @@ const TextBox = styled.div`
 
 const HeroBox = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: end;
   & img {
-    width: 100%;
+    width: 37rem;
+    height: 25rem;
+    object-fit: cover;
     border-radius: 10%;
   }
 `;

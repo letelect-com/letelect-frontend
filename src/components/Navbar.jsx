@@ -11,9 +11,9 @@ const Navbar = () => {
         <h1>Letelect.</h1>
       </Link>
       <div>
-        <NavLink to="/">Home</NavLink>
         <NavLink to="/">Features</NavLink>
         <NavLink to="/">Pricing</NavLink>
+        <NavLink to="/">Testimonials</NavLink>
         <NavLink to="/">Contact</NavLink>
       </div>
       <div>
