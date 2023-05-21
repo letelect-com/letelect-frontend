@@ -11,49 +11,49 @@ export const SidebarData = [
   {
     id: 1,
     name: "Dashboard",
-    icon: <InsertChartIcon />,
+    icon: <InsertChartIcon fontSize="large" />,
     link: "/dashboard",
   },
 
   {
     id: 2,
     name: "Elections",
-    icon: <BallotIcon />,
+    icon: <BallotIcon fontSize="large" />,
     link: "/elections",
   },
 
   {
     id: 3,
     name: "Verification",
-    icon: <VerifiedIcon />,
+    icon: <VerifiedIcon fontSize="large" />,
     link: "/verification",
   },
 
   {
     id: 4,
     name: "Candidates",
-    icon: <SensorOccupiedIcon />,
+    icon: <SensorOccupiedIcon fontSize="large" />,
     link: "/candidates",
   },
 
   {
     id: 5,
     name: "Voters",
-    icon: <HowToVoteIcon />,
+    icon: <HowToVoteIcon fontSize="large" />,
     link: "/voters",
   },
 
   {
     id: 6,
     name: "Positions",
-    icon: <PeopleAltIcon />,
+    icon: <PeopleAltIcon fontSize="large" />,
     link: "/positions",
   },
 
   {
     id: 7,
     name: "Logout",
-    icon: <LogoutIcon />,
+    icon: <LogoutIcon fontSize="large" />,
     link: "/login",
   },
 ];

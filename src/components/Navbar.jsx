@@ -7,7 +7,7 @@ import "./../index.css";
 const Navbar = () => {
   return (
     <Navigation>
-      <Link>
+      <Link to="/">
         <h1>Letelect.</h1>
       </Link>
       <div>

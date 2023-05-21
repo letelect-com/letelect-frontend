@@ -42,7 +42,7 @@ const SideLink = styled.li`
   font-weight: 700;
   transition: 0.25s ease-out;
   :nth-child(1) {
-    flex: 20%;
+    flex: 15%;
     display: grid;
     place-items: center;
   }
@@ -62,7 +62,7 @@ const Links = styled.ul`
 `;
 
 const Title = styled.span`
-  flex: 80%;
+  flex: 85%;
 `;
 const Container = styled.div`
   background-color: var(--bg-blue);
