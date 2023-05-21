@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home, Login, Register } from "./pages";
-import Welcome from "./pages/Welcome";
+import { Home, Login, Register, Welcome } from "./pages";
 
 const App = () => {
   return (
-    <div className="App">
+    <main className="App">
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -13,7 +12,7 @@ const App = () => {
           <Route path="/welcome" element={<Welcome />} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </main>
   );
 };
 
