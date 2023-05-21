@@ -39,9 +39,11 @@ const Navigation = styled.nav`
   left: 0;
   right: 0;
   width: 100%;
-  background-color: var(--bg-white);
+  /* background-color: var(--bg-white); */
   z-index: 10;
   margin-bottom: 10rem;
+  background: #fbfaf2;
+  box-shadow: 2.5px 2.5px 5px #d5d5ce, -2.5px -2.5px 5px #ffffff;
   & h1 {
     font-family: var(--font-dance);
     color: var(--bg-blue);
