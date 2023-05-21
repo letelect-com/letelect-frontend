@@ -99,7 +99,7 @@ export const PropsSection = styled.div`
     text-align: center;
     margin: 0 auto;
     font-size: 1.25rem;
-    margin-bottom: 2rem;
+    margin-block: 4rem;
   }
 `;
 

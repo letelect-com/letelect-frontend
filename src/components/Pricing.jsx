@@ -180,16 +180,17 @@ const PriceCheck = styled.div`
     gap: 0.5rem;
     & span {
       font-family: var(--font-open);
+      font-size: 1.1rem;
     }
   }
 `;
 
 export const Control = styled.div`
-  padding-inline: 10%;
+  padding-inline: 5%;
   ${(props) =>
     props.features &&
     css`
-      padding-inline: 5%;
+      padding-inline: 0%;
     `}
 `;
 
