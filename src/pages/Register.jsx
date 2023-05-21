@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
 import { FiMail } from "react-icons/fi";
 import "./../index.css";
+import AuthContext from "../context/AuthProvider";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -12,33 +13,21 @@ const Register = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const { setAuth } = useContext(AuthContext);
+  const REGISTER_URL = "/signup-client";
+  const userRef = useRef();
+  const errRef = useRef();
+
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
+
+  useEffect(() => {
+    setError("");
+  }, [email, fullname, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
-      try {
-        const response = await fetch(
-          "http://209.38.243.86/api-v1/signup-client/",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, fullname, password }),
-          }
-        );
-        const data = await response.json();
-        const token = data.token;
-        console.log(token);
-        localStorage.setItem("token", token);
-        token && setSuccess(`Authenticated as ${email} !!`);
-        setTimeout(() => {
-          window.location.href = "/welcome";
-        }, 2000);
-      } catch (err) {
-        setError(err.message);
-      }
-    }
   };
   return (
     <Parent>
@@ -52,6 +41,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
+                ref={userRef}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -96,17 +86,6 @@ const Register = () => {
           <SubmitRow>
             <input type="submit" value="Create new account" role="button" />
           </SubmitRow>
-          {success && (
-            <p
-              style={{
-                color: "green",
-                textAlign: "center",
-                fontWeight: "700",
-              }}
-            >
-              {success}
-            </p>
-          )}
           {error && (
             <p
               style={{
@@ -126,6 +105,17 @@ const Register = () => {
           </RegisterContainer>
         </Form>
       </Container>
+      {success && (
+        <p
+          style={{
+            color: "green",
+            textAlign: "center",
+            fontWeight: "700",
+          }}
+        >
+          {success}
+        </p>
+      )}
     </Parent>
   );
 };
