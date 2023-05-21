@@ -133,7 +133,7 @@ const Parent = styled.div`
 
 const Container = styled.div`
   /* From https://css.glass */
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(5px);
