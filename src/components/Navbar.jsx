@@ -39,7 +39,6 @@ const Navigation = styled.nav`
   left: 0;
   right: 0;
   width: 100%;
-  /* background-color: var(--bg-white); */
   z-index: 10;
   margin-bottom: 10rem;
   background: #fbfaf2;
