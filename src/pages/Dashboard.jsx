@@ -8,7 +8,7 @@ const Dashboard = () => {
       <Header />
       <Content>
         <Sidebar />
-        <div></div>
+        <div>hello</div>
       </Content>
     </Parent>
   );
@@ -20,6 +20,8 @@ const Parent = styled.main`
   overflow-x: hidden;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  display: flex;
+`;
 
 export default Dashboard;

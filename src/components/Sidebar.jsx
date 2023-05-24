@@ -68,8 +68,8 @@ const Container = styled.div`
   background-color: var(--bg-blue);
   width: 20%;
   height: 100vh;
-  border: 1px solid var(--bg-blue);
-  position: fixed;
+  overflow-x: hidden;
+  margin-top: 3.5rem;
 `;
 
 export default Sidebar;
