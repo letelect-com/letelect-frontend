@@ -41,6 +41,7 @@ const SideLink = styled.li`
   padding-block: 1rem;
   font-weight: 700;
   transition: 0.25s ease-out;
+  border: 0.5px solid var(--bg-blue);
   :nth-child(1) {
     flex: 15%;
     display: grid;
@@ -69,6 +70,7 @@ const Container = styled.div`
   width: 20%;
   height: 100vh;
   overflow-x: hidden;
+  position: fixed;
   margin-top: 3.5rem;
 `;
 
