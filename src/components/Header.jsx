@@ -34,25 +34,29 @@ const TopBar = styled.header`
   align-items: center;
   z-index: 5;
 
-  & :nth-child(1) {
+  & > div:nth-child(1) {
     flex: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--blue-shade);
-    & :nth-child(2) {
+
+    & > svg {
       cursor: pointer;
     }
   }
-  & :nth-child(2) {
+
+  & > h2 {
     flex: 3;
     text-align: center;
   }
-  & :nth-child(3) {
+
+  & > div:nth-child(3) {
     flex: 1;
     display: flex;
     float: right;
   }
+
   & h1 {
     font-family: var(--font-dance);
     color: var(--blue-shade);

@@ -8,18 +8,25 @@ const Dashboard = () => {
       <Header />
       <Content>
         <Sidebar />
-        <div></div>
+        <MainContent>Hello</MainContent>
       </Content>
     </Parent>
   );
 };
 
 const Parent = styled.main`
-  width: 100vw;
-  height: 100vh;
-  overflow-x: hidden;
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+  display: flex;
+  margin-top: 3.5rem;
+`;
+
+const MainContent = styled.div`
+  flex: 80%;
+`;
 
 export default Dashboard;

@@ -67,11 +67,9 @@ const Title = styled.span`
 `;
 const Container = styled.div`
   background-color: var(--bg-blue);
-  width: 20%;
-  height: 100vh;
-  overflow-x: hidden;
-  position: fixed;
-  margin-top: 3.5rem;
+  flex: 20%;
+  width: inherit;
+  height: 100dvh;
 `;
 
 export default Sidebar;
