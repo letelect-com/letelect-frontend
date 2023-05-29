@@ -32,10 +32,11 @@ const TopBar = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-block: 0.5rem;
   z-index: 5;
 
   & > div:nth-child(1) {
-    flex: 1;
+    flex: 20%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -47,12 +48,12 @@ const TopBar = styled.header`
   }
 
   & > h2 {
-    flex: 3;
+    flex: 70%;
     text-align: center;
   }
 
   & > div:nth-child(3) {
-    flex: 1;
+    flex: 10%;
     display: flex;
     float: right;
   }

@@ -22,7 +22,7 @@ const Parent = styled.main`
 
 const Content = styled.div`
   display: flex;
-  margin-top: 3.5rem;
+  margin-top: 4.5rem;
 `;
 
 const MainContent = styled.div`
