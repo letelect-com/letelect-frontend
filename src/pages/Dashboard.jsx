@@ -1,32 +1,46 @@
 import React from "react";
 import styled from "styled-components";
-import { Sidebar, Header } from "../components";
+import { Sidebar } from "../components";
 
 const Dashboard = () => {
   return (
     <Parent>
-      <Header />
       <Content>
         <Sidebar />
-        <MainContent>Hello</MainContent>
+        <MainContent>
+          <TopBar>Top Bar</TopBar>
+          <View>
+            Hello
+          </View>
+        </MainContent>
       </Content>
     </Parent>
   );
 };
 
-const Parent = styled.main`
+export const Parent = styled.main`
   width: 100dvw;
   height: 100dvh;
   overflow: hidden;
 `;
 
-const Content = styled.div`
+export const Content = styled.div`
   display: flex;
-  margin-top: 4.5rem;
 `;
 
-const MainContent = styled.div`
+export const MainContent = styled.div`
   flex: 80%;
+  display: flex;
+  flex-direction: column;
+`;
+
+const TopBar = styled.header`
+  flex: 10%;
+  background: var(--text-black);
+  color: var(--text-white);
+`;
+const View = styled.div`
+  flex: 90%;
 `;
 
 export default Dashboard;

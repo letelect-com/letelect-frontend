@@ -1,23 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useRef, useEffect } from "react";
 import { styled } from "styled-components";
 import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
 import "./../index.css";
+import axios from "./../api/axios";
+import AuthContext from "../context/AuthProvider";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const { setAuth } = useContext(AuthContext);
+  const LOGIN_URL = "/login";
+
+  useEffect(() => {
+    setError("");
+  }, [email, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ email, password }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const Token = response?.data?.token;
+      localStorage.setItem("token", Token);
+      Token && setAuth({ email, password, Token });
+      setSuccess(`Authenticated as ${email}!!`);
+      setTimeout(() => {
+        window.location.href = "/dashboard";
+      }, 3000);
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log(err.message);
+      setError(err.message);
+    }
   };
   return (
     <Parent>
       <Container>
+        {success && (
+          <p
+            style={{
+              color: "green",
+              textAlign: "center",
+              fontWeight: "700",
+              backgroundColor: "black",
+            }}
+          >
+            {success}
+          </p>
+        )}
         <h1>Welcome Back!</h1>
-        <Form onSubmit={() => handleSubmit(e)}>
+        <Form onSubmit={handleSubmit}>
           <FormData>
             <label htmlFor="email">Email</label>
             <FormRow>
@@ -27,6 +71,7 @@ const Login = () => {
                 name="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </FormRow>
           </FormData>
@@ -39,8 +84,21 @@ const Login = () => {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </FormRow>
+            {error && (
+              <p
+                style={{
+                  color: "red",
+                  textAlign: "center",
+                  fontWeight: "700",
+                  marginTop: "1rem",
+                }}
+              >
+                {error}
+              </p>
+            )}
             <SubmitRow>
               <input type="submit" value="Login" role="button" />
             </SubmitRow>

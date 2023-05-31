@@ -1,11 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-import { Sidebar, Header } from "../components";
+import { Sidebar } from "../components";
+import { Parent, Content, MainContent } from "../pages/Dashboard";
 
 const Dashboard = () => {
   return (
     <Parent>
-      <Header />
       <Content>
         <Sidebar />
         <MainContent>Hello</MainContent>
@@ -13,20 +13,5 @@ const Dashboard = () => {
     </Parent>
   );
 };
-
-const Parent = styled.main`
-  width: 100dvw;
-  height: 100dvh;
-  overflow: hidden;
-`;
-
-const Content = styled.div`
-  display: flex;
-  margin-top: 4.5rem;
-`;
-
-const MainContent = styled.div`
-  flex: 80%;
-`;
 
 export default Dashboard;

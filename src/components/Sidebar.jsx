@@ -1,10 +1,17 @@
 import React from "react";
 import { SidebarData } from "../data/SidebarData";
 import { styled } from "styled-components";
+import Quill from "../images/Quill With Ink.png";
 
 const Sidebar = () => {
   return (
     <Container>
+      <Logo>
+        <div>
+          <img src={Quill} alt="logo" />
+        </div>
+        <h1>Letelect</h1>
+      </Logo>
       <Links>
         {SidebarData.map((item) => {
           return (
@@ -31,14 +38,31 @@ const Sidebar = () => {
     </Container>
   );
 };
+const Logo = styled.div`
+  background-color: var(--text-black);
+  color: var(--text-white);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.7rem;
 
+  & img {
+    width: 2rem;
+  }
+  & h1 {
+    font-size: 2rem;
+    font-family: var(--font-dance);
+  }
+`;
 const SideLink = styled.li`
   width: 100%;
   list-style: none;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  padding-block: 1rem;
+  padding-block: 0.8rem;
   font-weight: 700;
   transition: 0.25s ease-out;
   border: 0.5px solid var(--bg-blue);
@@ -69,7 +93,7 @@ const Container = styled.div`
   background-color: var(--bg-blue);
   flex: 20%;
   width: inherit;
-  height: 100dvh;
+  height: 100vh;
 `;
 
 export default Sidebar;
