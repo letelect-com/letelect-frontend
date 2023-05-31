@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { Sidebar } from "../components";
+import { Header, Sidebar } from "../components";
+import { Button } from "../components/Navbar";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 
 const Dashboard = () => {
   return (
@@ -8,9 +10,20 @@ const Dashboard = () => {
       <Content>
         <Sidebar />
         <MainContent>
-          <TopBar>Top Bar</TopBar>
+          <Header />
           <View>
-            Hello
+            <Intro>
+              <div>
+                <h2>Dashboard</h2>
+                <p>Breakdown of the current election.</p>
+              </div>
+              <div>
+                <Button dashboard>
+                  <CloudDownloadIcon />
+                  <span>Download Results</span>
+                </Button>
+              </div>
+            </Intro>
           </View>
         </MainContent>
       </Content>
@@ -34,13 +47,16 @@ export const MainContent = styled.div`
   flex-direction: column;
 `;
 
-const TopBar = styled.header`
-  flex: 10%;
-  background: var(--text-black);
-  color: var(--text-white);
-`;
 const View = styled.div`
   flex: 90%;
+  padding-inline: 3%;
+`;
+
+const Intro = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 0.5rem;
 `;
 
 export default Dashboard;

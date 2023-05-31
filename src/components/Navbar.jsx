@@ -78,6 +78,15 @@ export const Button = styled.button`
       color: var(--bg-blue);
       width: 100%;
     `}
+    ${(props) =>
+    props.dashboard &&
+    css`
+      padding-block: 0.8rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap:.5rem;
+    `}
 `;
 
 export default Navbar;

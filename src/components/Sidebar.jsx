@@ -39,7 +39,7 @@ const Sidebar = () => {
   );
 };
 const Logo = styled.div`
-  background-color: var(--text-black);
+  background-color: #1d242e;
   color: var(--text-white);
   width: 100%;
   text-align: center;
