@@ -1,10 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Header, Sidebar } from "../components";
+import { Header, Sidebar, BarChart } from "../components";
 import { Button } from "../components/Navbar";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import { UserData } from "../data/Data";
 
 const Dashboard = () => {
+  const [userData, setUserData] = useState({
+    labels: UserData.map((data) => data.year),
+    datasets: [
+      {
+        label: "Accepted Votes",
+        data: UserData.map((data) => data.accepted),
+        backgroundColor: [
+          "rgba(75,192,192,1)",
+          "#ecf0f1",
+          "#50AF95",
+          "#f3ba2f",
+          "#2a71d0",
+        ],
+        borderColor: "black",
+        borderWidth: 2,
+      },
+    ],
+  });
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 2000, // Animation duration in milliseconds
+    },
+  };
   return (
     <Parent>
       <Content>
@@ -24,6 +51,9 @@ const Dashboard = () => {
                 </Button>
               </div>
             </Intro>
+            <div>
+              <BarChart chartData={userData}  options={options}/>
+            </div>
           </View>
         </MainContent>
       </Content>
@@ -34,7 +64,7 @@ const Dashboard = () => {
 export const Parent = styled.main`
   width: 100dvw;
   height: 100dvh;
-  overflow: hidden;
+  overflow-x: hidden;
 `;
 
 export const Content = styled.div`
@@ -47,16 +77,19 @@ export const MainContent = styled.div`
   flex-direction: column;
 `;
 
-const View = styled.div`
+export const View = styled.div`
   flex: 90%;
   padding-inline: 3%;
+  overflow-y: visible;
 `;
 
 const Intro = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 0.5rem;
+  padding-block: 0.25rem;
 `;
+
+const ChartBox = styled.div``;
 
 export default Dashboard;

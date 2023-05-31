@@ -92,8 +92,12 @@ const Title = styled.span`
 const Container = styled.div`
   background-color: var(--bg-blue);
   flex: 20%;
-  width: inherit;
   height: 100vh;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  bottom: 0;
 `;
 
 export default Sidebar;

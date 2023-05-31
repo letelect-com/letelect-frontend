@@ -8,5 +8,6 @@ export { default as Contact } from "./Contact"
 export { default as Sidebar } from "./Sidebar"
 export { default as SearchBox } from "./SearchBox"
 export { default as Header } from "./Header"
+export { default as BarChart } from "./BarChart"
 
 

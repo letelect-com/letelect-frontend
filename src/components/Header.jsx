@@ -10,7 +10,7 @@ const Header = () => {
       <SearchBox />
       <div>
         <img src={Ellipse} />
-        <p>Hello Gideon</p>
+        <p>Hello Okantey!</p>
         <span>
           <AccountCircleIcon fontSize="large" />
         </span>
@@ -28,6 +28,13 @@ const TopBar = styled.header`
   align-items: center;
   justify-content: space-between;
   padding-inline: 3%;
+  padding-block: 0.6rem;
+  overflow: hidden;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
 
   & div {
     color: black;
