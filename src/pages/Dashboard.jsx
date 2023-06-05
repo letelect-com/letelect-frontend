@@ -39,7 +39,7 @@ const Dashboard = () => {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
-      duration: 2000, // Animation duration in milliseconds
+      duration: 2000,
     },
   };
   return (

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Header, Sidebar } from "../components";
 import { Parent, Content, MainContent, View } from "../pages/Dashboard";
 
-const Dashboard = () => {
+const Elections = () => {
   return (
     <Parent>
       <Content>
@@ -17,4 +17,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Elections;

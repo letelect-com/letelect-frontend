@@ -43,7 +43,7 @@ const Register = () => {
       const Token = await response?.data?.token;
       localStorage.setItem("token", Token);
       Token && setAuth({ email, fullname, password, Token });
-      setSuccess(`Created account as ${email}!!`);
+      setSuccess(`Account Created Successfully!!`);
       setTimeout(() => {
         window.location.href = "/login";
       }, 3000);
