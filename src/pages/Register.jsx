@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BiUserCircle, BiLock } from "react-icons/bi";
 import { FiMail } from "react-icons/fi";
 import "./../index.css";
+import axios from "./../api/axios";
 import AuthContext from "../context/AuthProvider";
 
 const Register = () => {
@@ -14,7 +15,7 @@ const Register = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { setAuth } = useContext(AuthContext);
-  const REGISTER_URL = "/signup-client";
+  const REGISTER_URL = "/signup-client/";
   const userRef = useRef();
   const errRef = useRef();
 
@@ -28,6 +29,30 @@ const Register = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await axios.post(
+        REGISTER_URL,
+        JSON.stringify({ email, fullname, password }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const Token = await response?.data?.token;
+      localStorage.setItem("token", Token);
+      Token && setAuth({ email, fullname, password, Token });
+      setSuccess(`Created account as ${email}!!`);
+      setTimeout(() => {
+        window.location.href = "/login";
+      }, 3000);
+      setEmail("");
+      setPassword("");
+    } catch (err) {
+      console.log(err.message);
+      setError(err.message);
+    }
   };
   return (
     <Parent>
@@ -83,9 +108,6 @@ const Register = () => {
               />
             </FormRow>
           </FormData>
-          <SubmitRow>
-            <input type="submit" value="Create new account" role="button" />
-          </SubmitRow>
           {error && (
             <p
               style={{
@@ -97,6 +119,20 @@ const Register = () => {
               {error}
             </p>
           )}
+          {success && (
+            <p
+              style={{
+                color: "green",
+                textAlign: "center",
+                fontWeight: "700",
+              }}
+            >
+              {success}
+            </p>
+          )}
+          <SubmitRow>
+            <input type="submit" value="Create new account" role="button" />
+          </SubmitRow>
           <RegisterContainer>
             <p>Have an account?</p>
             <Link to="/login">
@@ -105,17 +141,6 @@ const Register = () => {
           </RegisterContainer>
         </Form>
       </Container>
-      {success && (
-        <p
-          style={{
-            color: "green",
-            textAlign: "center",
-            fontWeight: "700",
-          }}
-        >
-          {success}
-        </p>
-      )}
     </Parent>
   );
 };

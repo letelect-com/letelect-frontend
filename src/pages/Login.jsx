@@ -12,7 +12,7 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const { setAuth } = useContext(AuthContext);
-  const LOGIN_URL = "/login";
+  const LOGIN_URL = "/login/";
 
   useEffect(() => {
     setError("");
@@ -31,15 +31,17 @@ const Login = () => {
         }
       );
       console.log(JSON.stringify(response?.data));
-      const Token = response?.data?.token;
-      localStorage.setItem("token", Token);
-      Token && setAuth({ email, password, Token });
-      setSuccess(`Authenticated as ${email}!!`);
-      setTimeout(() => {
-        window.location.href = "/dashboard";
-      }, 3000);
-      setEmail("");
-      setPassword("");
+      const token = await response?.data?.token;
+      localStorage.setItem("token", token);
+      if (localStorage.token) {
+        setAuth(true);
+        setSuccess(`Authenticated as ${email}!!`);
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 3000);
+        setEmail("");
+        setPassword("");
+      }
     } catch (err) {
       console.log(err.message);
       setError(err.message);
@@ -48,18 +50,6 @@ const Login = () => {
   return (
     <Parent>
       <Container>
-        {success && (
-          <p
-            style={{
-              color: "green",
-              textAlign: "center",
-              fontWeight: "700",
-              backgroundColor: "black",
-            }}
-          >
-            {success}
-          </p>
-        )}
         <h1>Welcome Back!</h1>
         <Form onSubmit={handleSubmit}>
           <FormData>
@@ -97,6 +87,18 @@ const Login = () => {
                 }}
               >
                 {error}
+              </p>
+            )}
+            {success && (
+              <p
+                style={{
+                  color: "green",
+                  textAlign: "center",
+                  fontWeight: "700",
+                  marginTop: "1rem",
+                }}
+              >
+                {success}
               </p>
             )}
             <SubmitRow>
