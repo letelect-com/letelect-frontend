@@ -4,18 +4,8 @@ import { Header, Sidebar, BarChart } from "../components";
 import { Button } from "../components/Navbar";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { UserData } from "../data/Data";
-import AuthContext from "../context/AuthProvider";
-import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
-  const { auth } = useContext(AuthContext);
-  const navigate = useNavigate();
-  useEffect(() => {
-    if (!auth) {
-      navigate("/login");
-    }
-  }, []);
-
   const [userData, setUserData] = useState({
     labels: UserData.map((data) => data.year),
     datasets: [

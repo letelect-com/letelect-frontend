@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
   Dashboard,
@@ -11,21 +12,64 @@ import {
   Positions,
   NotFoundPage,
 } from "./pages";
+import { RequireAuth } from "./context/RequireAuth";
 
 const App = () => {
   return (
-    <React.Fragment className="App">
+    <React.Fragment>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/elections" element={<Elections />} />
-          <Route path="/verification" element={<Verification />} />
-          <Route path="/candidates" element={<Candidates />} />
-          <Route path="/voters" element={<Voters />} />
-          <Route path="/positions" element={<Positions />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RequireAuth>
+                <Dashboard />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/elections"
+            element={
+              <RequireAuth>
+                <Elections />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/verification"
+            element={
+              <RequireAuth>
+                <Verification />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/candidates"
+            element={
+              <RequireAuth>
+                <Candidates />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/voters"
+            element={
+              <RequireAuth>
+                <Voters />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/positions"
+            element={
+              <RequireAuth>
+                <Positions />
+              </RequireAuth>
+            }
+          />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
