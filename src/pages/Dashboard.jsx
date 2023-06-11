@@ -87,7 +87,7 @@ export const Intro = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 0.25rem;
+  padding-block: 1rem;
 `;
 
 const ChartBox = styled.div``;

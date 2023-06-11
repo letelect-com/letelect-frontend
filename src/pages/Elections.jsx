@@ -23,11 +23,48 @@ const Elections = () => {
                 </Button>
               </div>
             </Intro>
+            <div>
+              <Table>
+                <thead>
+                  <tr>
+                    <th>Election No.</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Date of Election</th>
+                    <th>Active</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </Table>
+            </div>
           </View>
         </MainContent>
       </Content>
     </Parent>
   );
 };
+
+const Table = styled.table`
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+
+  & thead,
+  tbody {
+    background-color: #e3ebf3;
+    border-bottom: 1px solid var(--gray-shade);
+    padding-block: 0.5rem;
+    & th {
+      font-weight: 600;
+    }
+    & td {
+    }
+  }
+`;
 
 export default Elections;
