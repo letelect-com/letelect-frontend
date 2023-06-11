@@ -5,8 +5,8 @@ import { useContext } from "react";
 
 export const RequireAuth = ({ children }) => {
   const { auth } = useContext(AuthContext);
-  if (!auth) {
-    return <Navigate to="/login " />;
-  }
+  // if (!auth) {
+  //   return <Navigate to="/login " />;
+  // }
   return children;
 };

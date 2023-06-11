@@ -83,7 +83,7 @@ export const View = styled.div`
   overflow-y: visible;
 `;
 
-const Intro = styled.div`
+export const Intro = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
