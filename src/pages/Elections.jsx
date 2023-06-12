@@ -11,18 +11,23 @@ const Elections = () => {
   const [tableData, setTableData] = useState([]);
   const [editData, setEditData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [nextElectionId, setNextElectionId] = useState(1);
+  const [nextElectionId, setNextElectionId] = useState(0);
 
-  useEffect(() => {
+  const retrieveTableData = () => {
     const storedData = localStorage.getItem("tableData");
     if (storedData) {
       setTableData(JSON.parse(storedData));
       setNextElectionId(JSON.parse(storedData).length + 1);
     }
+  };
+
+  useEffect(() => {
+    retrieveTableData();
   }, []);
 
   useEffect(() => {
     localStorage.setItem("tableData", JSON.stringify(tableData));
+    setIsLoading(false);
   }, [tableData]);
 
   const handleOpenModal = () => {
@@ -35,28 +40,22 @@ const Elections = () => {
   };
 
   const handleSaveData = (data) => {
+    setIsLoading(true);
     const newData = {
       ...data,
       id: nextElectionId,
       active: false,
     };
     if (editData) {
-      const updatedData = tableData.map((item) => {
-        if (item === editData) {
-          return newData;
-        }
-        return item;
-      });
+      const updatedData = tableData.map((item) =>
+        item === editData ? newData : item
+      );
       setTableData(updatedData);
     } else {
       setTableData([...tableData, newData]);
       setNextElectionId(nextElectionId + 1);
     }
     handleCloseModal();
-    localStorage.setItem(
-      "tableData",
-      JSON.stringify(editData ? updatedData : [...tableData, newData])
-    );
   };
 
   const handleEditData = (data) => {
