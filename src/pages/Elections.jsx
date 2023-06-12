@@ -14,19 +14,15 @@ const Elections = () => {
   const [nextElectionId, setNextElectionId] = useState(1);
 
   useEffect(() => {
-    // Retrieve table data from localStorage on page load
     const storedData = localStorage.getItem("tableData");
     if (storedData) {
       setTableData(JSON.parse(storedData));
       setNextElectionId(JSON.parse(storedData).length + 1);
+    } else {
+      setTableData([]);
+      setNextElectionId(1);
     }
   }, []);
-
-  useEffect(() => {
-    // Store table data in localStorage whenever it changes
-    localStorage.setItem("tableData", JSON.stringify(tableData));
-    setIsLoading(false);
-  }, [tableData]);
 
   const handleOpenModal = () => {
     setModalActive(true);
@@ -38,11 +34,10 @@ const Elections = () => {
   };
 
   const handleSaveData = (data) => {
-    setIsLoading(true);
     const newData = {
       ...data,
       id: nextElectionId,
-      active: false
+      active: false,
     };
     if (editData) {
       const updatedData = tableData.map((item) => {
@@ -57,6 +52,7 @@ const Elections = () => {
       setNextElectionId(nextElectionId + 1);
     }
     handleCloseModal();
+    localStorage.setItem("tableData", JSON.stringify(tableData));
   };
 
   const handleEditData = (data) => {

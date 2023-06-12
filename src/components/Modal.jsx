@@ -1,163 +1,171 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 const Modal = ({ active, onClose, onSave, editData }) => {
-  const [electionNo, setElectionNo] = useState(
-    editData ? editData.electionNo : ""
-  );
-  const [name, setName] = useState(editData ? editData.name : "");
-  const [description, setDescription] = useState(
-    editData ? editData.description : ""
-  );
-  const [dateOfElection, setDateOfElection] = useState(
-    editData ? editData.dateOfElection : ""
-  );
+  const [formData, setFormData] = useState({
+    name: "",
+    description: "",
+    dateOfElection: "",
+  });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSave({
-      electionNo,
-      name,
-      description,
-      dateOfElection,
+  useEffect(() => {
+    if (editData) {
+      setFormData({
+        name: editData.name,
+        description: editData.description,
+        dateOfElection: editData.dateOfElection,
+      });
+    } else {
+      setFormData({
+        name: "",
+        description: "",
+        dateOfElection: "",
+      });
+    }
+  }, [editData]);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    onSave(formData);
+    setFormData({
+      name: "",
+      description: "",
+      dateOfElection: "",
     });
   };
 
   return (
-    <ModalOverlay active={active} onClick={onClose}>
-      <ModalContent onClick={(e) => e.stopPropagation()}>
+    <ModalContainer active={active}>
+      <ModalContent>
         <ModalHeader>
-          <h3>{editData ? "Edit Election" : "Add New Election"}</h3>
-          <CloseButton onClick={onClose}>×</CloseButton>
+          <h2>{editData ? "Edit Election" : "Add Election"}</h2>
+          <CloseButton onClick={onClose}>Close</CloseButton>
         </ModalHeader>
         <ModalBody>
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <FormGroup>
-              <label htmlFor="electionNo">Election No.</label>
-              <input
+              <Label>Name</Label>
+              <Input
                 type="text"
-                id="electionNo"
-                value={electionNo}
-                onChange={(e) => setElectionNo(e.target.value)}
+                name="name"
+                value={formData.name}
+                onChange={handleInputChange}
               />
             </FormGroup>
             <FormGroup>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+              <Label>Description</Label>
+              <Textarea
+                name="description"
+                value={formData.description}
+                onChange={handleInputChange}
               />
             </FormGroup>
             <FormGroup>
-              <label htmlFor="description">Description</label>
-              <input
-                type="text"
-                id="description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </FormGroup>
-            <FormGroup>
-              <label htmlFor="dateOfElection">Date of Election</label>
-              <input
+              <Label>Date of Election</Label>
+              <Input
                 type="date"
-                id="dateOfElection"
-                value={dateOfElection}
-                onChange={(e) => setDateOfElection(e.target.value)}
+                name="dateOfElection"
+                value={formData.dateOfElection}
+                onChange={handleInputChange}
               />
             </FormGroup>
-            <ModalFooter>
-              <Button type="submit">Save</Button>
-            </ModalFooter>
           </Form>
         </ModalBody>
+        <ModalFooter>
+          <Button onClick={handleSave}>{editData ? "Update" : "Save"}</Button>
+        </ModalFooter>
       </ModalContent>
-    </ModalOverlay>
+    </ModalContainer>
   );
 };
 
-const ModalOverlay = styled.div`
+const ModalContainer = styled.div`
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: ${({ active }) => (active ? "flex" : "none")};
+  display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 99;
-  transition: 1s ease-in;
-  animation: display-modal 2s ease-in-out;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: ${(props) => (props.active ? 1 : 0)};
+  visibility: ${(props) => (props.active ? "visible" : "hidden")};
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 `;
 
 const ModalContent = styled.div`
-  background-color: var(--bg-white);
-  width: 40%;
-  max-width: 600px;
-  border-radius: 4px;
-  overflow: hidden;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
 `;
 
 const ModalHeader = styled.div`
-  padding: 1rem;
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #e3ebf3;
-  background: var(--bg-blue);
-  & h3 {
-    color: white;
-  }
+  align-items: center;
+  margin-bottom: 20px;
 `;
 
 const CloseButton = styled.button`
   background-color: transparent;
   border: none;
-  font-size: 24px;
   cursor: pointer;
 `;
 
 const ModalBody = styled.div`
-  padding: 1rem;
+  margin-bottom: 20px;
 `;
 
 const Form = styled.form``;
 
 const FormGroup = styled.div`
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+`;
 
-  & label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
+const Label = styled.label`
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+`;
 
-  & input {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    outline: none;
-  }
+const Input = styled.input`
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+`;
+
+const Textarea = styled.textarea`
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 `;
 
 const ModalFooter = styled.div`
-  padding: 1rem;
   display: flex;
   justify-content: flex-end;
 `;
 
 const Button = styled.button`
-  background-color: ${({ red }) => (red ? "red" : "blue")};
+  background-color: #007bff;
   color: #fff;
+  padding: 8px 16px;
   border: none;
-  padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
-  margin-left: 0.5rem;
 `;
 
 export default Modal;
