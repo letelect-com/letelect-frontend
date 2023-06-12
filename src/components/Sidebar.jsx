@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { SidebarData } from "../data/SidebarData";
 import { styled } from "styled-components";
 import Quill from "../images/Quill With Ink.png";
+import AuthContext from "../context/AuthProvider";
 
 const Sidebar = () => {
+  const { setAuth } = useContext(AuthContext);
   return (
     <Container>
       <Logo>
@@ -27,7 +29,15 @@ const Sidebar = () => {
                     : "",
               }}
               key={item.id}
-              onClick={() => (window.location.pathname = item.link)}
+              onClick={() => {
+                if (item.name === "logout") {
+                  window.location.href = "/login";
+                  localStorage.removeItem("token");
+                  setAuth(false);
+                } else {
+                  window.location.pathname = item.link;
+                }
+              }}
             >
               <span>{item.icon}</span>
               <Title>{item.name}</Title>
