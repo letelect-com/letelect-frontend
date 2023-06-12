@@ -4,15 +4,27 @@ import { Header, Sidebar } from "../components";
 import { Parent, Content, MainContent, View, Intro } from "../pages/Dashboard";
 import { Button } from "../components/Navbar";
 import Modal from "../components/Modal";
-import { CircularProgress } from "@mui/material";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Elections = () => {
   const [modalActive, setModalActive] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [editData, setEditData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [nextElectionId, setNextElectionId] = useState(1);
 
   useEffect(() => {
+    // Retrieve table data from localStorage on page load
+    const storedData = localStorage.getItem("tableData");
+    if (storedData) {
+      setTableData(JSON.parse(storedData));
+      setNextElectionId(JSON.parse(storedData).length + 1);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Store table data in localStorage whenever it changes
+    localStorage.setItem("tableData", JSON.stringify(tableData));
     setIsLoading(false);
   }, [tableData]);
 
@@ -27,17 +39,22 @@ const Elections = () => {
 
   const handleSaveData = (data) => {
     setIsLoading(true);
+    const newData = {
+      ...data,
+      id: nextElectionId,
+      active: false
+    };
     if (editData) {
       const updatedData = tableData.map((item) => {
         if (item === editData) {
-          return { ...data, active: item.active };
+          return newData;
         }
         return item;
       });
       setTableData(updatedData);
     } else {
-      const newData = { ...data, active: false };
       setTableData([...tableData, newData]);
+      setNextElectionId(nextElectionId + 1);
     }
     handleCloseModal();
   };
@@ -88,9 +105,9 @@ const Elections = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {tableData.map((item, index) => (
-                    <tr key={index}>
-                      <td>{item.electionNo}</td>
+                  {tableData.map((item) => (
+                    <tr key={item.id}>
+                      <td>{item.id}</td>
                       <td>{item.name}</td>
                       <td>{item.description}</td>
                       <td>{item.dateOfElection}</td>
@@ -143,6 +160,7 @@ const Table = styled.table`
     }
   }
 `;
+
 const LoadingAnimation = styled.div`
   display: flex;
   justify-content: center;
