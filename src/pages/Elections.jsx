@@ -4,6 +4,7 @@ import { Header, Sidebar } from "../components";
 import { Parent, Content, MainContent, View, Intro } from "../pages/Dashboard";
 import { Button } from "../components/Navbar";
 import Modal from "../components/Modal";
+import { CircularProgress } from "@mui/material";
 
 const Elections = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -106,7 +107,11 @@ const Elections = () => {
                   ))}
                 </tbody>
               </Table>
-              {isLoading && <LoadingAnimation>Loading...</LoadingAnimation>}
+              {isLoading && (
+                <LoadingAnimation>
+                  <CircularProgress />
+                </LoadingAnimation>
+              )}
             </div>
           </View>
         </MainContent>
