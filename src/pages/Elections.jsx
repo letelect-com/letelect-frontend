@@ -18,11 +18,12 @@ const Elections = () => {
     if (storedData) {
       setTableData(JSON.parse(storedData));
       setNextElectionId(JSON.parse(storedData).length + 1);
-    } else {
-      setTableData([]);
-      setNextElectionId(1);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tableData", JSON.stringify(tableData));
+  }, [tableData]);
 
   const handleOpenModal = () => {
     setModalActive(true);
@@ -52,7 +53,10 @@ const Elections = () => {
       setNextElectionId(nextElectionId + 1);
     }
     handleCloseModal();
-    localStorage.setItem("tableData", JSON.stringify(tableData));
+    localStorage.setItem(
+      "tableData",
+      JSON.stringify(editData ? updatedData : [...tableData, newData])
+    );
   };
 
   const handleEditData = (data) => {
