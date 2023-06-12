@@ -4,7 +4,6 @@ import { Header, Sidebar } from "../components";
 import { Parent, Content, MainContent, View, Intro } from "../pages/Dashboard";
 import { Button } from "../components/Navbar";
 import Modal from "../components/Modal";
-import { CircularProgress } from "@mui/material";
 
 const Elections = () => {
   const [modalActive, setModalActive] = useState(false);
@@ -96,18 +95,18 @@ const Elections = () => {
                       <td>{item.dateOfElection}</td>
                       <td>{item.active.toString()}</td>
                       <td>
-                        <button onClick={() => handleEditData(item)}>
+                        <EditButton onClick={() => handleEditData(item)}>
                           Edit
-                        </button>
-                        <button onClick={() => handleDeleteData(item)}>
+                        </EditButton>
+                        <DeleteButton onClick={() => handleDeleteData(item)}>
                           Delete
-                        </button>
+                        </DeleteButton>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </Table>
-              {isLoading && <CircularProgress />}
+              {isLoading && <LoadingAnimation>Loading...</LoadingAnimation>}
             </div>
           </View>
         </MainContent>
@@ -138,6 +137,23 @@ const Table = styled.table`
     & td {
     }
   }
+`;
+const LoadingAnimation = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #555;
+`;
+
+const EditButton = styled.button`
+  background-color: green;
+`;
+
+const DeleteButton = styled.button`
+  background-color: red;
 `;
 
 export default Elections;
