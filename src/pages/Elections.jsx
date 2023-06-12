@@ -156,6 +156,7 @@ const Table = styled.table`
       font-weight: 600;
     }
     & td {
+      padding-block: 0.5rem;
     }
   }
 `;
