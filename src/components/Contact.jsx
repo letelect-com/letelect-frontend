@@ -26,7 +26,7 @@ const Contact = () => {
           },
         }
       );
-      const data = await response?.message;
+      const data = await response?.data?.message;
       setSuccess(data);
     } catch (err) {
       console.log(err.stack);
