@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header, Sidebar } from "../components";
-import { Parent, Content, MainContent, View, Intro } from "../pages/Dashboard";
+import { Parent, Content, MainContent, View, Intro } from "./Dashboard";
 import { Button } from "../components/Navbar";
-import Modal from "../components/Modal";
+import ElectionModal from "../components/ElectionModal";
 import CircularProgress from "@mui/material/CircularProgress";
 
 const Elections = () => {
@@ -132,7 +132,7 @@ const Elections = () => {
           </View>
         </MainContent>
       </Content>
-      <Modal
+      <ElectionModal
         active={modalActive}
         onClose={handleCloseModal}
         onSave={handleSaveData}
@@ -142,7 +142,7 @@ const Elections = () => {
   );
 };
 
-const Table = styled.table`
+export const Table = styled.table`
   width: 100%;
   text-align: left;
   border-collapse: collapse;
@@ -161,7 +161,7 @@ const Table = styled.table`
   }
 `;
 
-const LoadingAnimation = styled.div`
+export const LoadingAnimation = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -171,11 +171,11 @@ const LoadingAnimation = styled.div`
   color: #555;
 `;
 
-const EditButton = styled.button`
+export const EditButton = styled.button`
   background-color: green;
 `;
 
-const DeleteButton = styled.button`
+export const DeleteButton = styled.button`
   background-color: red;
 `;
 

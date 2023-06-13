@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
-const Modal = ({ active, onClose, onSave, editData }) => {
+const ElectionModal = ({ active, onClose, onSave, editData }) => {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -168,4 +168,4 @@ const Button = styled.button`
   cursor: pointer;
 `;
 
-export default Modal;
+export default ElectionModal;
