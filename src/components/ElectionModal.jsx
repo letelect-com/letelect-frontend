@@ -57,6 +57,7 @@ const ElectionModal = ({ active, onClose, onSave, editData }) => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
+                required
               />
             </FormGroup>
             <FormGroup>
@@ -65,6 +66,7 @@ const ElectionModal = ({ active, onClose, onSave, editData }) => {
                 name="description"
                 value={formData.description}
                 onChange={handleInputChange}
+                required
               />
             </FormGroup>
             <FormGroup>
@@ -74,12 +76,17 @@ const ElectionModal = ({ active, onClose, onSave, editData }) => {
                 name="dateOfElection"
                 value={formData.dateOfElection}
                 onChange={handleInputChange}
+                required
               />
             </FormGroup>
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button onClick={handleSave}>{editData ? "Update" : "Save"}</Button>
+          <Button
+            type="submit"
+            value={editData ? "Update" : "Save"}
+            onSubmit={handleSave}
+          />
         </ModalFooter>
       </ModalContent>
     </ModalContainer>
@@ -160,7 +167,7 @@ const ModalFooter = styled.div`
   justify-content: flex-end;
 `;
 
-const Button = styled.button`
+const Button = styled.input`
   background-color: #007bff;
   color: #fff;
   padding: 8px 16px;
