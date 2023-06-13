@@ -106,7 +106,8 @@ const ModalContent = styled.div`
   position: relative;
   max-width: 500px;
   width: 100%;
-  background-color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
   padding: 20px;
   border-radius: 8px;
 `;
