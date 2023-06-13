@@ -1,10 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiLocationPlus, BiPhoneCall } from "react-icons/bi";
 import { BsEnvelope } from "react-icons/bs";
 import { styled } from "styled-components";
+import axios from "./../api/axios";
 import contact from "./../images/contact.jpg";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const CONTACT_URL = "/contact-us/";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(
+        CONTACT_URL,
+        JSON.stringify({ name, email, phone, message }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      const data = await response?.message;
+      setSuccess(data);
+    } catch (err) {
+      console.log(err.stack);
+      setError(err.stack);
+    }
+  };
   return (
     <React.Fragment>
       <Header
@@ -43,29 +71,76 @@ const Contact = () => {
         </Social>
       </Container>
       <Parent>
-        <Form>
+        <Form onSubmit={handleSubmit}>
           <Sender>
             <div>
               <label htmlFor="name">Your Name</label>
-              <input type="text" name="name" />
+              <input
+                type="text"
+                name="name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+              />
             </div>
             <div>
               <label htmlFor="email">E-mail Address</label>
-              <input type="email" name="email" />
+              <input
+                type="email"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
             <div>
               <label htmlFor="phone">Phone Number</label>
-              <input type="tel" name="phone" />
+              <input
+                type="text"
+                name="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                required
+              />
             </div>
           </Sender>
           <Input>
-            <label htmlFor="message">Leave a message</label>
-            <textarea name="message" cols="30" rows="10"></textarea>
+            <label htmlFor="enquiry">Leave a message</label>
+            <textarea
+              name="enquiry"
+              cols="30"
+              rows="10"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              required
+            ></textarea>
           </Input>
+          <SendBox>
+            <input type="submit" value="Send Message" />
+          </SendBox>
         </Form>
-        <SendBox>
-          <input type="submit" value="Send Message" />
-        </SendBox>
+        {success && (
+          <h2
+            style={{
+              color: "green",
+              fontWeight: "700",
+              textAlign: "center",
+            }}
+          >
+            {success}
+          </h2>
+        )}
+        {error && (
+          <h2
+            style={{
+              color: "red",
+              fontWeight: "700",
+              textAlign: "center",
+            }}
+          >
+            {error}
+          </h2>
+        )}
       </Parent>
     </React.Fragment>
   );
@@ -149,6 +224,7 @@ const Sender = styled.div`
   & input {
     margin-bottom: 1rem;
     padding-block: 1.2rem;
+    padding-left: 0.5rem;
     /* From https://css.glass */
     background: rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

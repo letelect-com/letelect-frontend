@@ -15,7 +15,8 @@ const Hero = () => {
     <HeroContainer>
       <TextBox>
         <h1>
-          Explore the power of <span>electronic voting</span>
+          <span> Experience</span> <span>seamless</span> elections with
+          Letelect.
         </h1>
         <p>
           Vote from anywhere, anytime, with ease. Our online voting system
@@ -65,13 +66,18 @@ const HeroContainer = styled.div`
 
 const TextBox = styled.div`
   & h1 {
-    font-size: 4rem;
+    font-size: 3.4rem;
     font-family: var(--font-open);
     margin-bottom: 1rem;
+    font-weight: 800;
   }
   & span {
+    &:nth-child(1) {
+      color: var(--text-black);
+    }
     color: var(--bg-blue);
     font-family: var(--font-open);
+    font-size: 3.7rem;
   }
   & p {
     margin-bottom: 1rem;
@@ -84,7 +90,7 @@ const HeroBox = styled.div`
   display: flex;
   justify-content: end;
   & img {
-    width: 37rem;
+    width: 100%;
     height: 25rem;
     object-fit: cover;
     border-radius: 10%;

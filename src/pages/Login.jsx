@@ -7,7 +7,7 @@ import axios from "./../api/axios";
 import AuthContext from "../context/AuthProvider";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -16,14 +16,14 @@ const Login = () => {
 
   useEffect(() => {
     setError("");
-  }, [email, password]);
+  }, [username, password]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
         LOGIN_URL,
-        JSON.stringify({ email, password }),
+        JSON.stringify({ username, password }),
         {
           headers: {
             "Content-Type": "application/json",
@@ -35,11 +35,11 @@ const Login = () => {
       localStorage.setItem("token", token);
       if (localStorage.token) {
         setAuth(true);
-        setSuccess(`Authenticated as ${email}!!`);
+        setSuccess(`Authenticated as ${username}!!`);
         setTimeout(() => {
           window.location.href = "/dashboard";
         }, 3000);
-        setEmail("");
+        setUsername("");
         setPassword("");
       }
     } catch (err) {
@@ -53,14 +53,14 @@ const Login = () => {
         <h1>Welcome Back!</h1>
         <Form onSubmit={handleSubmit}>
           <FormData>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="username">username</label>
             <FormRow>
               <BiUserCircle size={30} />
               <input
                 type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                name="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </FormRow>
