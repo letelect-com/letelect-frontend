@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { Header, Sidebar, BarChart } from "../components";
+import { Header, Sidebar, BarChart, CandidatesModal } from "../components";
 import { Parent, Content, MainContent, View, Intro } from "../pages/Dashboard";
 import { Button } from "../components/Navbar";
 import { LoadingAnimation, Table } from "./Elections";
