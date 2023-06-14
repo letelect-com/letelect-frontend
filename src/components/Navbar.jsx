@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import "./../index.css";
 import styled, { css } from "styled-components";
 import "./../index.css";
+import AuthContext from "../context/AuthProvider";
 
 const Navbar = () => {
+  const { auth } = useContext(AuthContext);
   return (
     <Navigation>
       <Link to="/">
@@ -18,7 +20,7 @@ const Navbar = () => {
       </div>
       <div>
         <Link to="/login">
-          <Button>Login</Button>
+          <Button>{auth ? "Logout" : "Login"}</Button>
         </Link>
         <Link to="/register">
           <Button white>Register</Button>
@@ -85,7 +87,7 @@ export const Button = styled.button`
       font-size: 0.95rem;
       display: flex;
       align-items: center;
-      gap:.5rem;
+      gap: 0.5rem;
     `}
 `;
 
