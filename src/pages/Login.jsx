@@ -38,7 +38,7 @@ const Login = () => {
         setSuccess(`Authenticated as ${username}!!`);
         setTimeout(() => {
           window.location.href = "/dashboard";
-        }, 3000);
+        }, 2000);
         setUsername("");
         setPassword("");
       }

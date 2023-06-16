@@ -46,7 +46,7 @@ const Register = () => {
       setSuccess(`Account Created Successfully!!`);
       setTimeout(() => {
         window.location.href = "/login";
-      }, 3000);
+      }, 2000);
       setEmail("");
       setPassword("");
     } catch (err) {
