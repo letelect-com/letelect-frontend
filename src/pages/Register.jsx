@@ -69,6 +69,7 @@ const Register = () => {
                 ref={userRef}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </FormRow>
           </FormData>
@@ -81,6 +82,7 @@ const Register = () => {
                 name="fullname"
                 value={fullname}
                 onChange={(e) => setFullname(e.target.value)}
+                required
               />
             </FormRow>
           </FormData>
@@ -93,6 +95,7 @@ const Register = () => {
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                required
               />
             </FormRow>
           </FormData>
@@ -105,6 +108,7 @@ const Register = () => {
                 name="confirmPassword"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
             </FormRow>
           </FormData>

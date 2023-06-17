@@ -53,7 +53,7 @@ const Login = () => {
         <h1>Welcome Back!</h1>
         <Form onSubmit={handleSubmit}>
           <FormData>
-            <label htmlFor="username">username</label>
+            <label htmlFor="username">Email</label>
             <FormRow>
               <BiUserCircle size={30} />
               <input
