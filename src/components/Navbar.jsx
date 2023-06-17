@@ -44,7 +44,7 @@ const Navigation = styled.nav`
   z-index: 10;
   margin-bottom: 10rem;
   background: #fbfaf2;
-  box-shadow: 2.5px 2.5px 5px #d5d5ce, -2.5px -2.5px 5px #ffffff;
+  box-shadow: 1.5px 1.5px 5px #d5d5ce, -1.5px -1.5px 5px #ffffff;
   & h1 {
     font-family: var(--font-dance);
     color: var(--bg-blue);
