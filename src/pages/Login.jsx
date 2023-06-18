@@ -92,7 +92,7 @@ const Login = () => {
             {success && (
               <p
                 style={{
-                  color: "green",
+                  color: "var(--success)",
                   textAlign: "center",
                   fontWeight: "700",
                   marginTop: "1rem",

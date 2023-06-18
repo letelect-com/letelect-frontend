@@ -115,7 +115,7 @@ const Register = () => {
           {error && (
             <p
               style={{
-                color: "red",
+                color: "var(--danger)",
                 textAlign: "center",
                 fontWeight: "700",
               }}

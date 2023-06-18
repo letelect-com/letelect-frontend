@@ -29,15 +29,7 @@ const Sidebar = () => {
                     : "",
               }}
               key={item.id}
-              onClick={() => {
-                if (item.name === "logout") {
-                  window.location.href = "/login";
-                  localStorage.removeItem("token");
-                  setAuth(false);
-                } else {
-                  window.location.pathname = item.link;
-                }
-              }}
+              onClick={() => (window.location.pathname = item.link)}
             >
               <span>{item.icon}</span>
               <Title>{item.name}</Title>
