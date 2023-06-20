@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { SearchBox } from "../components";
 import Ellipse from "./../images/Ellipse 13.png";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Button } from "./Navbar";
+import AuthContext from "../context/AuthProvider";
 
 const Header = () => {
+  const { handleLogout } = useContext(AuthContext);
+
   return (
     <TopBar>
       <SearchBox />
       <div>
         <img src={Ellipse} />
         <p>Hello Okantey!</p>
-        <span>
-          <AccountCircleIcon fontSize="large" />
-        </span>
+        <Button red onClick={handleLogout}>
+          Logout
+        </Button>
       </div>
     </TopBar>
   );

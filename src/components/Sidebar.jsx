@@ -5,7 +5,6 @@ import Quill from "../images/Quill With Ink.png";
 import AuthContext from "../context/AuthProvider";
 
 const Sidebar = () => {
-  const { setAuth } = useContext(AuthContext);
   return (
     <Container>
       <Logo>

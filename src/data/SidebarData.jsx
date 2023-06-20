@@ -50,10 +50,10 @@ export const SidebarData = [
     link: "/positions",
   },
 
-  {
-    id: 7,
-    name: "Logout",
-    icon: <LogoutIcon fontSize="large" />,
-    link: "/login",
-  },
+  // {
+  //   id: 7,
+  //   name: "Logout",
+  //   icon: <LogoutIcon fontSize="large" />,
+  //   link: "/login",
+  // },
 ];

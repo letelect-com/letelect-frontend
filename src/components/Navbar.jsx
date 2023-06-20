@@ -89,6 +89,15 @@ export const Button = styled.button`
       align-items: center;
       gap: 0.5rem;
     `}
+    ${(props) =>
+    props.red &&
+    css`
+      background: red;
+      padding-block: 0.6rem;
+      padding-inline: 1.5rem;
+      font-size: 0.95rem;
+      border: 1px solid red;
+    `}
 `;
 
 export default Navbar;

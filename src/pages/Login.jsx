@@ -39,8 +39,6 @@ const Login = () => {
         setTimeout(() => {
           window.location.href = "/dashboard";
         }, 2000);
-        setUsername("");
-        setPassword("");
       }
     } catch (err) {
       console.log(err.message);
