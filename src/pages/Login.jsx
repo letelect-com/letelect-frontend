@@ -118,7 +118,7 @@ const Login = () => {
                   <CircularProgress
                     style={{
                       color: "white",
-                      fontSize: ".9rem",
+                      fontSize: "small",
                     }}
                   />
                 ) : (
