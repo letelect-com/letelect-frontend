@@ -48,7 +48,12 @@ const ElectionModal = ({ active, onClose, onSave, editData }) => {
         <ModalHeader>
           <h2>{editData ? "Edit Election" : "Add Election"}</h2>
           <CloseButton onClick={onClose}>
-            <CloseButton color="var(--danger)" />
+            <CloseIcon
+              style={{
+                color: "var(--bg-blue)",
+              }}
+              fontSize="large"
+            />
           </CloseButton>
         </ModalHeader>
         <ModalBody>

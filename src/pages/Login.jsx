@@ -171,6 +171,9 @@ const Container = styled.div`
     color: var(--text-white);
     text-align: center;
   }
+  @media (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 const Form = styled.form``;
