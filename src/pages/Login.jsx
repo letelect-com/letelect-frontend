@@ -5,6 +5,7 @@ import { BiUserCircle, BiLock } from "react-icons/bi";
 import "./../index.css";
 import axios from "./../api/axios";
 import AuthContext from "../context/AuthProvider";
+import CircularProgress from "@mui/material/CircularProgress";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -13,12 +14,15 @@ const Login = () => {
   const [error, setError] = useState("");
   const { setAuth } = useContext(AuthContext);
   const LOGIN_URL = "/login/";
+  const [clickLogin, setClickLogin] = useState(false);
 
   useEffect(() => {
     setError("");
+    setClickLogin(false);
   }, [username, password]);
 
   const handleSubmit = async (e) => {
+    setClickLogin(true);
     e.preventDefault();
     try {
       const response = await axios.post(
@@ -35,7 +39,7 @@ const Login = () => {
       localStorage.setItem("token", token);
       if (localStorage.token) {
         setAuth(true);
-        setSuccess(`Authenticated as ${username}!!`);
+        setSuccess(`Login Successful`);
         setTimeout(() => {
           window.location.href = "/dashboard";
         }, 2000);
@@ -100,7 +104,23 @@ const Login = () => {
               </p>
             )}
             <SubmitRow>
-              <input type="submit" value="Login" role="button" />
+              <input
+                type="submit"
+                value={clickLogin ? "Please wait...." : "Login"}
+                role="button"
+                style={{
+                  opacity: `${clickLogin ? "0.5" : "1"}`,
+                }}
+              />
+              <div>
+                {clickLogin && (
+                  <CircularProgress
+                    style={{
+                      color: "white",
+                    }}
+                  />
+                )}
+              </div>
             </SubmitRow>
             <Reset>Forgot Password?</Reset>
             <Register>
@@ -180,6 +200,10 @@ const FormRow = styled.div`
 const SubmitRow = styled.div`
   width: 100%;
   margin-block: 1rem;
+  & div {
+    text-align: center;
+    margin-block: 0.5rem;
+  }
   & input {
     width: 100%;
     padding-block: 0.7rem;

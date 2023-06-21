@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import CloseIcon from "@mui/icons-material/Close";
 
 const ElectionModal = ({ active, onClose, onSave, editData }) => {
   const [formData, setFormData] = useState({
@@ -46,7 +47,9 @@ const ElectionModal = ({ active, onClose, onSave, editData }) => {
       <ModalContent>
         <ModalHeader>
           <h2>{editData ? "Edit Election" : "Add Election"}</h2>
-          <CloseButton onClick={onClose}>Close</CloseButton>
+          <CloseButton onClick={onClose}>
+            <CloseButton color="var(--danger)" />
+          </CloseButton>
         </ModalHeader>
         <ModalBody>
           <Form>
