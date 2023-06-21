@@ -45,6 +45,7 @@ const Login = () => {
         }, 2000);
       }
     } catch (err) {
+      setClickLogin(false);
       console.log(err.message);
       setError(err.message);
     }
@@ -113,12 +114,15 @@ const Login = () => {
                 }}
               />
               <div>
-                {clickLogin && (
+                {clickLogin ? (
                   <CircularProgress
                     style={{
                       color: "white",
+                      fontSize: ".9rem",
                     }}
                   />
+                ) : (
+                  ""
                 )}
               </div>
             </SubmitRow>
@@ -202,7 +206,7 @@ const SubmitRow = styled.div`
   margin-block: 1rem;
   & div {
     text-align: center;
-    margin-block: 0.5rem;
+    margin-top: 0.75rem;
   }
   & input {
     width: 100%;
