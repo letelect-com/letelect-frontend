@@ -4,6 +4,7 @@ const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(localStorage.token ? true : false);
+  const token = localStorage.getItem("token");
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -13,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ auth, setAuth, handleLogout }}>
+    <AuthContext.Provider value={{ auth, setAuth, handleLogout, token }}>
       {children}
     </AuthContext.Provider>
   );

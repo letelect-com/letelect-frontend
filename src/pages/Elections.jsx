@@ -1,28 +1,42 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { Header, Sidebar } from "../components";
 import { Parent, Content, MainContent, View, Intro } from "./Dashboard";
 import { Button } from "../components/Navbar";
 import ElectionModal from "../components/ElectionModal";
 import CircularProgress from "@mui/material/CircularProgress";
+import axios from "./../api/axios";
+import AuthContext from "./../context/AuthProvider";
 
 const Elections = () => {
+  const ELECTIONS_URL = "/elections/";
   const [modalActive, setModalActive] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [editData, setEditData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [nextElectionId, setNextElectionId] = useState(0);
-
-  const retrieveTableData = () => {
-    const storedData = localStorage.getItem("tableData");
-    if (storedData) {
-      setTableData(JSON.parse(storedData));
-      setNextElectionId(JSON.parse(storedData).length + 1);
-    }
-  };
+  const [loadingElections, setLoadingElections] = useState(true);
+  const { token } = useContext(AuthContext);
 
   useEffect(() => {
-    retrieveTableData();
+    const getElectionData = async () => {
+      setLoadingElections(true);
+      try {
+        const response = await axios.get(ELECTIONS_URL, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const elections = await response;
+        console.log(elections.data);
+        setTableData(elections.data);
+      } catch (err) {
+        console.log(err.message);
+      } finally {
+        setLoadingElections(false);
+      }
+    };
+    getElectionData();
   }, []);
 
   useEffect(() => {
@@ -103,31 +117,36 @@ const Elections = () => {
                     <th>Action</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {tableData.map((item) => (
-                    <tr key={item.id}>
-                      <td>{item.id}</td>
-                      <td>{item.name}</td>
-                      <td>{item.description}</td>
-                      <td>{item.dateOfElection}</td>
-                      <td>{item.active.toString()}</td>
-                      <td>
-                        <EditButton onClick={() => handleEditData(item)}>
-                          Edit
-                        </EditButton>
-                        <DeleteButton onClick={() => handleDeleteData(item)}>
-                          Delete
-                        </DeleteButton>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
+                {loadingElections ? (
+                  <LoadingAnimation>
+                    <CircularProgress
+                      style={{
+                        textAlign: "center",
+                      }}
+                    />
+                  </LoadingAnimation>
+                ) : (
+                  <tbody>
+                    {tableData.map((item) => (
+                      <tr key={item.id}>
+                        <td>{item.id}</td>
+                        <td>{item.name}</td>
+                        <td>{item.description}</td>
+                        <td>{item.dateOfElection}</td>
+                        <td>{item.active.toString()}</td>
+                        <td>
+                          <EditButton onClick={() => handleEditData(item)}>
+                            Edit
+                          </EditButton>
+                          <DeleteButton onClick={() => handleDeleteData(item)}>
+                            Delete
+                          </DeleteButton>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                )}
               </Table>
-              {isLoading && (
-                <LoadingAnimation>
-                  <CircularProgress />
-                </LoadingAnimation>
-              )}
             </div>
           </View>
         </MainContent>
@@ -162,13 +181,8 @@ export const Table = styled.table`
 `;
 
 export const LoadingAnimation = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #555;
+  width: 100%;
+  text-align: center;
 `;
 
 export const EditButton = styled.button`
