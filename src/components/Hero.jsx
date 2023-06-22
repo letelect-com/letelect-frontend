@@ -24,7 +24,9 @@ const Hero = () => {
           the thousands who have already trusted us to revolutionize the way
           they vote.
         </p>
-        <Button>Get Started</Button>
+        <Button onClick={() => (window.location.href = "/dashboard")}>
+          Get Started
+        </Button>
       </TextBox>
       <HeroBox>
         {!imageLoaded && (

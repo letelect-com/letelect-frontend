@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { SearchBox } from "../components";
 import Ellipse from "./../images/Ellipse 13.png";
@@ -20,7 +20,7 @@ const Header = () => {
         <img src={Ellipse} />
         <p>Hello Okantey!</p>
         <Button red onClick={callLogoutFunction}>
-          {clickedLoggedOut ? "Please wait...." : "Logout"}
+          {clickedLoggedOut ? "Please wait.." : "Logout"}
         </Button>
       </div>
     </TopBar>
