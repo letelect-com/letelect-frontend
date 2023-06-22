@@ -7,6 +7,11 @@ import AuthContext from "../context/AuthProvider";
 
 const Header = () => {
   const { handleLogout } = useContext(AuthContext);
+  const [clickedLoggedOut, setClickedLoggedOut] = useState(false);
+  const callLogoutFunction = () => {
+    setClickedLoggedOut(true);
+    handleLogout();
+  };
 
   return (
     <TopBar>
@@ -14,8 +19,8 @@ const Header = () => {
       <div>
         <img src={Ellipse} />
         <p>Hello Okantey!</p>
-        <Button red onClick={handleLogout}>
-          Logout
+        <Button red onClick={callLogoutFunction}>
+          {clickedLoggedOut ? "Please wait...." : "Logout"}
         </Button>
       </div>
     </TopBar>
