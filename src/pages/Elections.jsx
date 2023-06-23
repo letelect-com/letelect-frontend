@@ -27,9 +27,9 @@ const Elections = () => {
             Authorization: `Bearer ${token}`,
           },
         });
-        const elections = await response;
-        console.log(elections.data);
-        setTableData(elections.data);
+        const elections = response.data;
+        console.log(elections);
+        setTableData(elections);
       } catch (err) {
         console.log(err.message);
       } finally {
