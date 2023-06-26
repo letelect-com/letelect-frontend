@@ -40,13 +40,15 @@ const Register = () => {
         }
       );
       console.log(JSON.stringify(response?.data));
-      const Token = await response?.data?.token;
-      localStorage.setItem("token", Token);
-      Token && setAuth({ email, fullname, password, Token });
-      setSuccess(`Account Created Successfully!!`);
-      setTimeout(() => {
-        window.location.href = "/login";
-      }, 2000);
+      const token = await response?.data?.token;
+      localStorage.setItem("token", token);
+      if (localStorage.token) {
+        setAuth(true);
+        setSuccess(`Account Created Successfully!!`);
+        setTimeout(() => {
+          window.location.href = "/dashboard";
+        }, 2000);
+      }
       setEmail("");
       setPassword("");
     } catch (err) {
