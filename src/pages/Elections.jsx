@@ -24,7 +24,7 @@ const Elections = () => {
       try {
         const response = await axios.get(ELECTIONS_URL, {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: token,
           },
         });
         const elections = response.data;
