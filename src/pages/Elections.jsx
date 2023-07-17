@@ -9,7 +9,7 @@ import axios from "./../api/axios";
 import AuthContext from "./../context/AuthProvider";
 
 const Elections = () => {
-  const ELECTIONS_URL = "/elections/";
+  const ELECTIONS_URL = "/elections";
   const [modalActive, setModalActive] = useState(false);
   const [tableData, setTableData] = useState([]);
   const [editData, setEditData] = useState(null);
@@ -24,7 +24,7 @@ const Elections = () => {
       try {
         const response = await axios.get(ELECTIONS_URL, {
           headers: {
-            Authorization: token,
+            Authorization: localStorage.getItem("token"),
           },
         });
         const elections = response.data;

@@ -19,12 +19,10 @@ const Navbar = () => {
         <NavLink to="/">Contact</NavLink>
       </div>
       <div>
-        <Link to="/login">
-          <Button>{auth ? "Logout" : "Login"}</Button>
-        </Link>
-        <Link to="/register">
-          <Button white>Register</Button>
-        </Link>
+        <Button onClick={() => (window.location.href = "/login")}>
+          {auth ? "Logout" : "Login"}
+        </Button>
+        <Button white>Register</Button>
       </div>
     </Navigation>
   );

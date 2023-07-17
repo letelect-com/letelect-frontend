@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-  const { setAuth } = useContext(AuthContext);
+  const { setAuth, setExpiry } = useContext(AuthContext);
   const LOGIN_URL = "/login/";
   const [clickLogin, setClickLogin] = useState(false);
 
@@ -36,7 +36,8 @@ const Login = () => {
       );
       console.log(response?.data);
       const token = await response?.data?.token;
-      localStorage.setItem("token", token);
+      const expiry = response?.data?.expiry;
+      expiry && localStorage.setItem("token", token);
       if (localStorage.token) {
         setAuth(true);
         setSuccess(`Login Successful`);
