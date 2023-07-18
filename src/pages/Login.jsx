@@ -36,8 +36,7 @@ const Login = () => {
       );
       console.log(response?.data);
       const token = await response?.data?.token;
-      const expiry = response?.data?.expiry;
-      expiry && localStorage.setItem("token", token);
+      localStorage.setItem("token", token);
       if (localStorage.token) {
         setAuth(true);
         setSuccess(`Login Successful`);
